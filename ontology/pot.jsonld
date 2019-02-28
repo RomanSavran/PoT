@@ -1,0 +1,1385 @@
+{
+  "@context": {
+    "dli": "https://digitalliving.github.io/standards/ontologies/dli.jsonld#",
+    "pot": "https://platformoftrust.github.io/standards/ontologies/pot.jsonld#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "vs": "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+    "dct": "http://purl.org/dc/terms/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "cc": "http://creativecommons.org/ns#",
+    "rak": "http://uri.suomi.fi/datamodel/ns/rak#",
+    "vann": "http://purl.org/vocab/vann/",
+    "@vocab": "https://platformoftrust.github.io/standards/ontologies/pot.jsonld#",
+    "@base": "https://platformoftrust.github.io/standards/ontologies/pot.jsonld#",
+    "defines": {
+      "@reverse": "rdfs:isDefinedBy"
+    },
+    "cc:license": {
+      "@type": "@id"
+    },
+    "cc:attributionURL": {
+      "@type": "@id"
+    },
+    "domain": {
+      "@id": "rdfs:domain",
+      "@type": "@vocab"
+    },
+    "range": {
+      "@id": "rdfs:range",
+      "@type": "@vocab"
+    },
+    "subClassOf": {
+      "@id": "rdfs:subClassOf",
+      "@type": "@vocab"
+    },
+    "subPropertyOf": {
+      "@id": "rdfs:subPropertyOf",
+      "@type": "@vocab"
+    }
+  },
+  "@id": "https://platformoftrust.github.io/standards/ontologies/pot",
+  "@type": "owl:Ontology",
+  "dct:title": "Platform Of Trust Core Ontology",
+  "dct:description": "The Platform of Trust Core Ontology is the base for all PoT APIs.",
+  "rdfs:label": "Platform Of Trust Core Ontology",
+  "rdfs:comment": "An ontology used in the Platform of Trust APIs.",
+  "dct:abstract": "The Platform Of Trust ontology aims to provide a comprehensive set of classes and properties to describe real world entities.",
+  "vann:preferredNamespacePrefix": "pot",
+  "vann:preferredNamespaceUri": "https://platformoftrust.github.io/standards/ontologies/pot",
+  "dct:rights": "TODO",
+  "dct:publisher": "Suomen Tilaajavastuu Oy",
+  "cc:license": "https://tldrlegal.com/license/mit-license",
+  "cc:attributionName": "Platform of Trust Core Ontology",
+  "cc:attributionURL": "http://www.tilaajavastuu.fi",
+  "rdfs:seeAlso": "https://github.com/PlatformOfTrust/standards/",
+  "defines": [
+    {
+      "@id": "pot:Class",
+      "@type": "rdfs:Class",
+      "subClassOf": "rdfs:Class",
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "PoT Class"
+        }
+      ],
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "The class of PoT classes. PoT classes and their instances are dereferenceable resources."
+        }
+      ],
+      "vs:term_status": "unstable",
+      "owl:versionInfo": "DRAFT"
+    },
+    {
+      "@id": "pot:Attribute",
+      "@type": "rdf:Property",
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "PoT Attribute"
+        }
+      ],
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "The class of PoT attributes. PoT attributes are properties a class can have."
+        }
+      ],
+      "vs:term_status": "unstable",
+      "owl:versionInfo": "DRAFT"
+    },
+    {
+      "@id": "pot:supportedType",
+      "@type": "rdf:Property",
+      "subPropertyOf": "pot:Attribute",
+      "rdfs:label": [
+        {
+          "@language": "fi",
+          "@value": "Tuetut tyypit"
+        }
+      ],
+      "rdfs:comment": [
+        {
+          "@language": "fi",
+          "@value": "Tyypit jotka tiedetään kuuluvan identiteettiin"
+        }
+      ],
+      "vs:term_status": "unstable",
+      "owl:versionInfo": "DRAFT"
+    },
+    {
+      "@id": "pot:SupportedType",
+      "@type": "pot:Class",
+      "rdfs:label": [
+        {
+          "@language": "fi",
+          "@value": "Tuettu tyyppi"
+        }
+      ],
+      "rdfs:comment": [
+        {
+          "@language": "fi",
+          "@value": "Tyyppi jonka tiedetään kuuluvan identiteettiin"
+        }
+      ],
+      "vs:term_status": "unstable",
+      "owl:versionInfo": "DRAFT"
+    },
+    {
+      "@id": "pot:SupportedClass",
+      "@type": "pot:Class",
+      "rdfs:label": [
+        {
+          "@language": "fi",
+          "@value": "Tuettu luokka"
+        }
+      ],
+      "rdfs:comment": [
+        {
+          "@language": "fi",
+          "@value": "Luokka jonka tiedetään kuuluvan identiteettiin"
+        }
+      ],
+      "vs:term_status": "unstable",
+      "owl:versionInfo": "DRAFT"
+    },
+    {
+      "@id": "pot:supportedClass",
+      "@type": "rdf:Property",
+      "subPropertyOf": "pot:Attribute",
+      "rdfs:label": [
+        {
+          "@language": "fi",
+          "@value": "Tuetut luokat"
+        }
+      ],
+      "rdfs:comment": [
+        {
+          "@language": "fi",
+          "@value": "Luokat jotka tiedetään kuuluvan identiteettiin"
+        }
+      ],
+      "vs:term_status": "unstable",
+      "owl:versionInfo": "DRAFT"
+    },
+    {
+      "@id": "pot:SupportedAttribute",
+      "@type": "pot:Class",
+      "rdfs:label": [
+        {
+          "@language": "fi",
+          "@value": "Tuettu attribuutti"
+        }
+      ],
+      "rdfs:comment": [
+        {
+          "@language": "fi",
+          "@value": "Attribuutti jonka tiedetään kuuluvan identiteettiin"
+        }
+      ],
+      "vs:term_status": "unstable",
+      "owl:versionInfo": "DRAFT"
+    },
+    {
+      "@id": "pot:supportedAttribute",
+      "@type": "rdf:Property",
+      "subPropertyOf": "pot:Attribute",
+      "rdfs:label": [
+        {
+          "@language": "fi",
+          "@value": "Tuetut attribuutit"
+        }
+      ],
+      "rdfs:comment": [
+        {
+          "@language": "fi",
+          "@value": "Attribuutit jotka tiedetään liittyvän identiteettiin"
+        }
+      ],
+      "range": "pot:SupportedAttribute",
+      "vs:term_status": "unstable",
+      "owl:versionInfo": "DRAFT"
+    },
+    {
+      "@id": "pot:Apartment",
+      "@type": "pot:Class",
+      "subClassOf": "dli:Space",
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Apartment"
+        }
+      ],
+      "rdfs:comment": [
+        {
+          "@language": "en",
+          "@value": "An apartment"
+        }
+      ],
+      "vs:term_status": "unstable",
+      "owl:versionInfo": "DRAFT"
+    },
+  {
+    "@id": "pot:Party",
+    "@type": "pot:Class",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Party"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Organization",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Party",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Organization"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Person",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Party",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Person"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Contact",
+    "@type": "pot:Class",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Contact"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Contract",
+    "@type": "pot:Class",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Contract"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Product",
+    "@type": "pot:Class",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Product"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Object",
+    "@type": "pot:Class",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Object"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Construction",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Object",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Construction"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Building",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Construction",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Building"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Floor",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Construction",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Floor"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Space",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Object",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Space"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Appartment",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Space",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Appartment"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:RoomPhysical",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Space",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Physical Room"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:RoomVirtual",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Space",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Virtual Room"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:RealEstate",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Object",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Real Estate"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Device",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Object",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Device"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Process",
+    "@type": "pot:Class",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Process"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Group",
+    "@type": "pot:Class",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Group"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Event",
+    "@type": "pot:Class",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Event"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Relationship",
+    "@type": "pot:Class",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Relationship"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Role",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Relationship",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Role"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Link",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Relationship",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Link"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:CategorizationUsageMain",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Main Usage"
+      },
+      {
+        "@language": "fi",
+        "@value": "Käyttötarkoitus"
+      }
+    ],
+    "domain": [
+      "pot:Building",
+      "pot:Space",
+      "pot:RoomPhysical",
+      "pot:RoomVirtual",
+      "pot:RealEstate"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:CategorizationAreaTypeOfficial1",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Official Area Type 1"
+      },
+      {
+        "@language": "fi",
+        "@value": "Rekisteriyksikkölaji"
+      }
+    ],
+    "domain": [
+      "pot:RealEstate"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:CategorizationAreaTypeOfficial2",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Official Area Type 2"
+      },
+      {
+        "@language": "fi",
+        "@value": "Kiinteistölaji"
+      }
+    ],
+    "domain": [
+      "pot:RealEstate"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:CategorizationControl",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Control"
+      },
+      {
+        "@language": "fi",
+        "@value": "Rakennuspaikan hallintaperustelaji"
+      }
+    ],
+    "domain": [
+      "pot:RealEstate"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:CategorizationCultureHistorySignificance",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Culture History Significance"
+      },
+      {
+        "@language": "fi",
+        "@value": "Kulttuurihistoriallinen merkittävyys "
+      }
+    ],
+    "domain": [
+      "pot:Building"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:CategorizationLocal",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Type"
+      },
+      {
+        "@language": "fi",
+        "@value": "Tyyppi"
+      }
+    ],
+    "domain": [
+      "pot:Object"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:CategorizationOccupancyRestriction",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Occupance Restriction"
+      },
+      {
+        "@language": "fi",
+        "@value": "Muuttokielto"
+      }
+    ],
+    "domain": [
+      "pot:Apartment"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:CategorizationPropertyLocation",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Property Location"
+      },
+      {
+        "@language": "fi",
+        "@value": "Sijaitsee määräalalla"
+      }
+    ],
+    "domain": [
+      "pot:RealEstate"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:CategorizationUsageBuilding",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Building Usage Type"
+      },
+      {
+        "@language": "fi",
+        "@value": "Huoneistolaji"
+      }
+    ],
+    "domain": [
+      "pot:Apartment"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:CategorizationUsageCommonSpace",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Common Space Usage Type"
+      },
+      {
+        "@language": "fi",
+        "@value": "Yleistila"
+      }
+    ],
+    "domain": [
+      "pot:Space",
+      "pot:RoomPhysical",
+      "pot:RoomVirtual"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:CategorizationUsageStatus",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Usage Status"
+      },
+      {
+        "@language": "fi",
+        "@value": "Huoneiston käytössäolo"
+      }
+    ],
+    "domain": [
+      "pot:Apartment"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:DescriptionApartment",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Appartment Description"
+      },
+      {
+        "@language": "fi",
+        "@value": "Kuvaus (huoneistokuvaus)"
+      }
+    ],
+    "domain": [
+      "pot:Apartment"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Description",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Description"
+      },
+      {
+        "@language": "fi",
+        "@value": "Kuvaus"
+      }
+    ],
+    "domain": [
+      "pot:Object"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:DescriptionAdditional",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Additional Description"
+      },
+      {
+        "@language": "fi",
+        "@value": "Lisätietoja"
+      }
+    ],
+    "domain": [
+      "pot:Object"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:DescriptionAmountRoom",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Room Amount"
+      },
+      {
+        "@language": "fi",
+        "@value": "Huoneiden lukumäärä"
+      }
+    ],
+    "domain": [
+      "pot:Apartment"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:DescriptionAmountStairway",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Stairway Amount"
+      },
+      {
+        "@language": "fi",
+        "@value": "Porrashuoneiden määrä"
+      }
+    ],
+    "domain": [
+      "pot:Building"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:DescriptionAmountStorey",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Storay Amount"
+      },
+      {
+        "@language": "fi",
+        "@value": "Kerroslukumäärä"
+      }
+    ],
+    "domain": [
+      "pot:Building"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:DescriptionContractCorporate",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Coopertive Contract"
+      },
+      {
+        "@language": "fi",
+        "@value": "Kuvaus - yhtiöjärjestys"
+      }
+    ],
+    "domain": [
+      "pot:Space",
+      "pot:Apartment"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:DescriptionHeatingMain",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Main Heating"
+      },
+      {
+        "@language": "fi",
+        "@value": "Lämmitystapa"
+      }
+    ],
+    "domain": [
+      "pot:Building"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:DescriptionKitchen",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Kitchen"
+      },
+      {
+        "@language": "fi",
+        "@value": "Keittiölaji"
+      }
+    ],
+    "domain": [
+      "pot:Space",
+      "pot:Apartment"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:IdGovernment",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Goverment Id"
+      },
+      {
+        "@language": "fi",
+        "@value": "Tunniste - virallinen"
+      }
+    ],
+    "domain": [
+      "pot:Object"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:IdGovernmentPermanent",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Permanent Goverment Id"
+      },
+      {
+        "@language": "fi",
+        "@value": "Pysyvä rakennustunnus "
+      }
+    ],
+    "domain": [
+      "pot:Building"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:IdGovernmentReal1",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Real Goverment Id 1"
+      },
+      {
+        "@language": "fi",
+        "@value": "Kiinteistötunnus"
+      }
+    ],
+    "domain": [
+      "pot:RealEstate"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:IdGovernmentReal2",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Real Goverment Id 2"
+      },
+      {
+        "@language": "fi",
+        "@value": "Määräalatunnus"
+      }
+    ],
+    "domain": [
+      "pot:RealEstate"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:IdGovernmentTemporary",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Temporary Goverment Id"
+      },
+      {
+        "@language": "fi",
+        "@value": "Rakennustunnus"
+      }
+    ],
+    "domain": [
+      "pot:Building"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:IdGtin",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Barcode"
+      },
+      {
+        "@language": "fi",
+        "@value": "Viivakoodi"
+      }
+    ],
+    "domain": [
+      "pot:Object"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:IdIfcGuid",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "IFC id"
+      },
+      {
+        "@language": "fi",
+        "@value": "IFC objekti viittaus (GUID)"
+      }
+    ],
+    "domain": [
+      "pot:Object"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:IdName",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Name"
+      },
+      {
+        "@language": "fi",
+        "@value": "Nimi"
+      }
+    ],
+    "domain": [
+      "pot:Object"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:IdNameRealEstate",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Real Estate Name"
+      },
+      {
+        "@language": "fi",
+        "@value": "kiinteistön nimi"
+      }
+    ],
+    "domain": [
+      "pot:RealEstate"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:IdNameApartment",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Appartment Name"
+      },
+      {
+        "@language": "fi",
+        "@value": "Huoneistotunnus"
+      }
+    ],
+    "domain": [
+      "pot:Space",
+      "pot:Apartment"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:IdNfc",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "NFC"
+      },
+      {
+        "@language": "fi",
+        "@value": "NFC"
+      }
+    ],
+    "domain": [
+      "pot:Object"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:IdPot",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Pot id"
+      },
+      {
+        "@language": "fi",
+        "@value": "Tunniste"
+      }
+    ],
+    "domain": [
+      "pot:Object"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:IdQr",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "QR code"
+      },
+      {
+        "@language": "fi",
+        "@value": "QR koodi"
+      }
+    ],
+    "domain": [
+      "pot:Object"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:IdRfid",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "RFID"
+      },
+      {
+        "@language": "fi",
+        "@value": "RFID"
+      }
+    ],
+    "domain": [
+      "pot:Object"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:LifeCycleCompletionMomentYear",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Completion Year"
+      },
+      {
+        "@language": "fi",
+        "@value": "Valmistumisvuosi"
+      }
+    ],
+    "domain": [
+      "pot:Building",
+      "pot:Space"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:LifeCycleInaugurationMomentYear",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Inauguration Year"
+      },
+      {
+        "@language": "fi",
+        "@value": "Käyttöönottovuosi"
+      }
+    ],
+    "domain": [
+      "pot:Building",
+      "pot:Space"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:LifecycleInspectionYear",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Inspection Year"
+      },
+      {
+        "@language": "fi",
+        "@value": "Loppukatselmusvuosi"
+      }
+    ],
+    "domain": [
+      "pot:Building",
+      "pot:Space"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:LifeCycleStatusCurrent",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Current Status"
+      },
+      {
+        "@language": "fi",
+        "@value": "Elinkaaren vaihe"
+      }
+    ],
+    "domain": [
+      "pot:Object"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:LocationFloor",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Floor"
+      },
+      {
+        "@language": "fi",
+        "@value": "Kerrostunnus"
+      }
+    ],
+    "domain": [
+      "pot:Space"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:PhysicalAreaSquare",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Area squaremeter"
+      },
+      {
+        "@language": "fi",
+        "@value": "Pinta-ala"
+      }
+    ],
+    "domain": [
+      "pot:Building",
+      "pot:Floor",
+      "pot:Space",
+      "pot:RealEstate"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:PhysicalAreaSquareMeterLivingNet",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Area squaremeter Living Net"
+      },
+      {
+        "@language": "fi",
+        "@value": "Huoneistoala/Asuinpinta-ala"
+      }
+    ],
+    "domain": [
+      "pot:Building",
+      "pot:Floor",
+      "pot:Space",
+      "pot:RealEstate"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:PhysicalAreaSquareMeterLivingNetAudited",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Area squaremeter Living Net Audited"
+      },
+      {
+        "@language": "fi",
+        "@value": "Asuinpinta-ala - tarkistusmitattu"
+      }
+    ],
+    "domain": [
+      "pot:Building",
+      "pot:Floor",
+      "pot:Space",
+      "pot:RealEstate"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:PhysicalAreaSquareMeterNet",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Area squaremeter Net"
+      },
+      {
+        "@language": "fi",
+        "@value": "Kerrosala - netto"
+      }
+    ],
+    "domain": [
+      "pot:Building",
+      "pot:Floor",
+      "pot:Space",
+      "pot:RealEstate"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:PhysicalHeightMeter",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Height meter"
+      },
+      {
+        "@language": "fi",
+        "@value": "Korkeus"
+      }
+    ],
+    "domain": [
+      "pot:Building",
+      "pot:Space"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:PhysicalVolumeCubic",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Volume cubicmeter"
+      },
+      {
+        "@language": "fi",
+        "@value": "Tilavuus"
+      }
+    ],
+    "domain": [
+      "pot:Building",
+      "pot:Space"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  }
+]}
