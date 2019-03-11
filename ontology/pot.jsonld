@@ -205,63 +205,7 @@
       "vs:term_status": "unstable",
       "owl:versionInfo": "DRAFT"
     },
-    {
-      "@id": "pot:Apartment",
-      "@type": "pot:Class",
-      "subClassOf": "dli:Space",
-      "rdfs:label": [
-        {
-          "@language": "en",
-          "@value": "Apartment"
-        }
-      ],
-      "rdfs:comment": [
-        {
-          "@language": "en",
-          "@value": "An apartment"
-        }
-      ],
-      "vs:term_status": "unstable",
-      "owl:versionInfo": "DRAFT"
-    },
-  {
-    "@id": "pot:Party",
-    "@type": "pot:Class",
-    "rdfs:label": [
-      {
-        "@language": "en",
-        "@value": "Party"
-      }
-    ],
-    "vs:term_status": "unstable",
-    "owl:versionInfo": "DRAFT"
-  },
-  {
-    "@id": "pot:Organization",
-    "@type": "pot:Class",
-    "subClassOf": "pot:Party",
-    "rdfs:label": [
-      {
-        "@language": "en",
-        "@value": "Organization"
-      }
-    ],
-    "vs:term_status": "unstable",
-    "owl:versionInfo": "DRAFT"
-  },
-  {
-    "@id": "pot:Person",
-    "@type": "pot:Class",
-    "subClassOf": "pot:Party",
-    "rdfs:label": [
-      {
-        "@language": "en",
-        "@value": "Person"
-      }
-    ],
-    "vs:term_status": "unstable",
-    "owl:versionInfo": "DRAFT"
-  },
+    
   {
     "@id": "pot:Contact",
     "@type": "pot:Class",
@@ -305,6 +249,118 @@
       {
         "@language": "en",
         "@value": "Object"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Process",
+    "@type": "pot:Class",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Process"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Event",
+    "@type": "pot:Class",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Event"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Role",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Relationship",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Role"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Link",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Relationship",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Link"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Relationship",
+    "@type": "pot:Class",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Relationship"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Party",
+    "@type": "pot:Class",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Party"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Group",
+    "@type": "pot:Class",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Group"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Organization",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Party",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Organization"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Person",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Party",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Person"
       }
     ],
     "vs:term_status": "unstable",
@@ -363,7 +419,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:Appartment",
+    "@id": "pot:Apartment",
     "@type": "pot:Class",
     "subClassOf": "pot:Space",
     "rdfs:label": [
@@ -376,26 +432,65 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:RoomPhysical",
+    "@id": "pot:Room",
     "@type": "pot:Class",
     "subClassOf": "pot:Space",
     "rdfs:label": [
       {
         "@language": "en",
-        "@value": "Physical Room"
+        "@value": "Room"
       }
     ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:RoomVirtual",
+    "@id": "pot:ET",
     "@type": "pot:Class",
-    "subClassOf": "pot:Space",
+    "subClassOf": "pot:Room",
     "rdfs:label": [
       {
         "@language": "en",
-        "@value": "Virtual Room"
+        "@value": "Room"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:MH",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Room",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Room"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:KPH",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Room",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Room"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:AH",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Room",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Room"
       }
     ],
     "vs:term_status": "unstable",
@@ -428,75 +523,131 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:Process",
+    "@id": "pot:DataType",
     "@type": "pot:Class",
     "rdfs:label": [
       {
         "@language": "en",
-        "@value": "Process"
+        "@value": "Data Type"
       }
     ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:Group",
+    "@id": "pot:DateTime",
     "@type": "pot:Class",
+    "subClassOf": "pot:DataType",
     "rdfs:label": [
       {
         "@language": "en",
-        "@value": "Group"
+        "@value": "DateTime"
       }
     ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:Event",
+    "@id": "pot:Year",
     "@type": "pot:Class",
+    "subClassOf": "pot:DataType",
     "rdfs:label": [
       {
         "@language": "en",
-        "@value": "Event"
+        "@value": "Year"
       }
     ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:Relationship",
+    "@id": "pot:Date",
     "@type": "pot:Class",
+    "subClassOf": "pot:DataType",
     "rdfs:label": [
       {
         "@language": "en",
-        "@value": "Relationship"
+        "@value": "DateTime"
       }
     ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:Role",
+    "@id": "pot:Time",
     "@type": "pot:Class",
-    "subClassOf": "pot:Relationship",
+    "subClassOf": "pot:DataType",
     "rdfs:label": [
       {
         "@language": "en",
-        "@value": "Role"
+        "@value": "DateTime"
       }
     ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:Link",
+    "@id": "pot:Boolean",
     "@type": "pot:Class",
-    "subClassOf": "pot:Relationship",
+    "subClassOf": "pot:DataType",
     "rdfs:label": [
       {
         "@language": "en",
-        "@value": "Link"
+        "@value": "DateTime"
       }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Number",
+    "@type": "pot:Class",
+    "subClassOf": "pot:DataType",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "DateTime"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Text",
+    "@type": "pot:Class",
+    "subClassOf": "pot:DataType",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "DateTime"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:Name",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Main Usage"
+      },
+      {
+        "@language": "fi",
+        "@value": "Käyttötarkoitus"
+      }
+    ],
+    "domain": [
+      "pot:Contact",
+      "pot:Contract",
+      "pot:Product",
+      "pot:Object",
+      "pot:Process",
+      "pot:Event",
+      "pot:Relationship",
+      "pot:Party",
+      "pot:Group"
     ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"
@@ -517,8 +668,7 @@
     "domain": [
       "pot:Building",
       "pot:Space",
-      "pot:RoomPhysical",
-      "pot:RoomVirtual",
+      "pot:Room",
       "pot:RealEstate"
     ],
     "vs:term_status": "unstable",
@@ -691,8 +841,7 @@
     ],
     "domain": [
       "pot:Space",
-      "pot:RoomPhysical",
-      "pot:RoomVirtual"
+      "pot:Room"
     ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"
@@ -1173,6 +1322,10 @@
       "pot:Building",
       "pot:Space"
     ],
+    "range": [
+      "pot:Year",
+      "pot:Date"
+    ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"
   },
@@ -1193,6 +1346,10 @@
       "pot:Building",
       "pot:Space"
     ],
+    "range": [
+      "pot:Year",
+      "pot:Date"
+    ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"
   },
@@ -1212,6 +1369,9 @@
     "domain": [
       "pot:Building",
       "pot:Space"
+    ],
+    "range": [
+      "pot:Year"
     ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"
