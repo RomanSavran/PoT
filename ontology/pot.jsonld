@@ -593,7 +593,33 @@
     "rdfs:label": [
       {
         "@language": "en",
-        "@value": "DateTime"
+        "@value": "Temperature"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:CelsiusTemperature",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Temperature",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Celsius temperature"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:FahrenheitTemperature",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Temperature",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Fahrenheit temperature"
       }
     ],
     "vs:term_status": "unstable",
@@ -645,7 +671,8 @@
     ],
     "range": [
       "pot:Measurement",
-      "pot:Temperature"
+      "pot:CelsiusTemperature",
+      "pot:FahrenheitTemperature"
     ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"

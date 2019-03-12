@@ -330,7 +330,7 @@
           
               <li class="second-level" style="line-height: 20px;" id="sd_4"><a  href="class-potjsonldbuilding.html">pot.jsonld:Building</a></li>
           
-              <li class="second-level" style="line-height: 20px;" id="sd_5"><a  href="class-potjsonldcelsiustemperature.html">pot.jsonld:CelsiusTemperature</a></li>
+              <li class="second-level" style="line-height: 20px;" id="sd_5"><a class="active" href="class-potjsonldcelsiustemperature.html">pot.jsonld:CelsiusTemperature</a></li>
           
               <li class="second-level" style="line-height: 20px;" id="sd_6"><a  href="class-potjsonldclass.html">pot.jsonld:Class</a></li>
           
@@ -350,7 +350,7 @@
           
               <li class="second-level" style="line-height: 20px;" id="sd_14"><a  href="class-potjsonldet.html">pot.jsonld:ET</a></li>
           
-              <li class="second-level" style="line-height: 20px;" id="sd_15"><a class="active" href="class-potjsonldevent.html">pot.jsonld:Event</a></li>
+              <li class="second-level" style="line-height: 20px;" id="sd_15"><a  href="class-potjsonldevent.html">pot.jsonld:Event</a></li>
           
               <li class="second-level" style="line-height: 20px;" id="sd_16"><a  href="class-potjsonldfahrenheittemperature.html">pot.jsonld:FahrenheitTemperature</a></li>
           
@@ -605,7 +605,7 @@
           <a href="entities-tree-classes.html">Classes</a>
     </li>
       <li class="active">
-            https://platformoftrust.github.io/standards/ontologies/pot.jsonld#Event
+            https://platformoftrust.github.io/standards/ontologies/pot.jsonld#CelsiusTemperature
         </li>
   </ol>
 
@@ -633,7 +633,7 @@
 
             <h1>
 
-                pot.jsonld:Event
+                pot.jsonld:CelsiusTemperature
                 
                     <small class="label label-info label-xs">leaf node</small>
                   
@@ -648,17 +648,23 @@
                 <ul>
                     
 
-                        <li><a href="entities-tree-classes.html">owl:Thing</a>
+                        
+
+                        <li>
+
+                          <a href="class-potjsonldtemperature.html" title="'Temperature'">pot.jsonld:Temperature</a>
 
                           <ul>
-                            <li><a style="font-weight: bold;" title="'Event'">pot.jsonld:Event</a>
 
+                            <li><a style="font-weight: bold;" title="'Celsius temperature'">pot.jsonld:CelsiusTemperature</a>
                             
                               </li>
 
                           </ul>
 
-                        </li>
+                          </li>
+                        
+
                     
 
                 </ul>
@@ -675,7 +681,7 @@
             </div>
             <div class="panel-body">
 
-                <code>https://platformoftrust.github.io/standards/ontologies/pot.jsonld#Event</code>
+                <code>https://platformoftrust.github.io/standards/ontologies/pot.jsonld#CelsiusTemperature</code>
             </div>
           </div>
            </div></div>
@@ -688,7 +694,7 @@
             </div>
             <div class="panel-body">
 
-                Event
+                Celsius temperature
             </div>
           </div>
            </div></div>
@@ -701,6 +707,21 @@
 
 
 
+           
+            <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Superclasses (2)</h3>
+            </div>
+            <div class="panel-body">
+
+            
+                    <li><a href="class-potjsonldtemperature.html" title="https://platformoftrust.github.io/standards/ontologies/pot.jsonld#Temperature">pot.jsonld:Temperature</a></li><li><a href="class-potjsonlddatatype.html" title="https://platformoftrust.github.io/standards/ontologies/pot.jsonld#DataType">pot.jsonld:DataType</a></li>
+            
+
+            </div>
+          </div>
+           </div></div>
            
 
 
@@ -717,7 +738,7 @@
             </div>
             <div class="panel-body" style="overflow: auto;">
 
-                <p>Instances of pot.jsonld:Event can have the following properties:</p>
+                <p>Instances of pot.jsonld:CelsiusTemperature can have the following properties:</p>
             </div>
              <table class="table table-bordered" style="overflow: auto;">
 
@@ -728,33 +749,6 @@
                 
 
                     
-
-                    
-
-                        <tr class="table-inheritanceinfo">
-                            <th colspan="4" class="treeinfo"><span class="label label-default">From class <a title="pot.jsonld:Event" href="class-potjsonldevent.html" class="fromclass_link">pot.jsonld:Event</a></span>
-                            </th>
-                        </tr>
-
-                            
-                            <tr>
-                                <td class="firsttd">
-                                    <a class="propcolor" title="pot.jsonld:Name" href="prop-potjsonldname.html">pot.jsonld:Name</a>
-                                </td>
-                                <td class="secondtd">
-                                    <i>rdf:Property<i>
-                                </td>
-                                <td class="thirdtd">
-                                    <span>--</span>
-                                </td>
-                                <td class="fourthtd">
-                                    
-                                        <i>owl:Thing</i>
-                                    
-                                </td>
-                            </tr>
-
-                            
 
                     
 
@@ -898,9 +892,10 @@
 <span class="k">@prefix</span><span class="w"> </span><span class="nn">xml:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/XML/1998/namespace&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
 <span class="k">@prefix</span><span class="w"> </span><span class="nn">xsd:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
 
-<span class="nn">pot:</span><span class="nt">Event</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">pot:</span><span class="nt">Class</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">label</span><span class="w"> </span><span class="s">&quot;Event&quot;</span><span class="o">@</span><span class="ge">en</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="nn">pot:</span><span class="nt">CelsiusTemperature</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">pot:</span><span class="nt">Class</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">label</span><span class="w"> </span><span class="s">&quot;Celsius temperature&quot;</span><span class="o">@</span><span class="ge">en</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="nn">rdfs:</span><span class="nt">isDefinedBy</span><span class="w"> </span><span class="nv">&lt;https://platformoftrust.github.io/standards/ontologies/pot&gt;</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">subClassOf</span><span class="w"> </span><span class="nn">pot:</span><span class="nt">Temperature</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="nn">owl:</span><span class="nt">versionInfo</span><span class="w"> </span><span class="s">&quot;DRAFT&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="nn">vs:</span><span class="nt">term_status</span><span class="w"> </span><span class="s">&quot;unstable&quot;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
 </pre></div>
@@ -1003,7 +998,7 @@ $('#search-input-sidebar').keyup(function() {
 
     $(document).ready(function (){
       $('#sidebar-wrapper').animate({
-          scrollTop: $("#sd_15").offset().top - 100
+          scrollTop: $("#sd_5").offset().top - 100
       }, 100);
     });
 
