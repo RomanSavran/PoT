@@ -631,7 +631,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:AverageTemperature",
+    "@id": "pot:MeasuredTemperature",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
