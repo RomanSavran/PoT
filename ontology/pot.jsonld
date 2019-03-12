@@ -587,7 +587,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:Boolean",
+    "@id": "pot:Temperature",
     "@type": "pot:Class",
     "subClassOf": "pot:DataType",
     "rdfs:label": [
@@ -600,7 +600,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:Number",
+    "@id": "pot:Measurement",
     "@type": "pot:Class",
     "subClassOf": "pot:DataType",
     "rdfs:label": [
@@ -613,14 +613,39 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:Text",
-    "@type": "pot:Class",
-    "subClassOf": "pot:DataType",
+    "@id": "pot:Date",
+    "@type": "rdf:Property",
     "rdfs:label": [
       {
         "@language": "en",
-        "@value": "DateTime"
+        "@value": "Date"
       }
+    ],
+    "domain": [
+      "pot:Measurement"
+    ],
+    "range": [
+      "pot:DateTime"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:AverageTemperature",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Average temperature"
+      }
+    ],
+    "domain": [
+      "pot:Space",
+      "pot:Building"
+    ],
+    "range": [
+      "pot:Measurement",
+      "pot:Temperature"
     ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"
