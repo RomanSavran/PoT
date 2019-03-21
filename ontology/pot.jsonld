@@ -523,6 +523,19 @@
     "owl:versionInfo": "DRAFT"
   },
   {
+    "@id": "pot:Element",
+    "@type": "pot:Class",
+    "subClassOf": "pot:Object",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Element"
+      }
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
     "@id": "pot:DataType",
     "@type": "pot:Class",
     "rdfs:label": [
@@ -587,98 +600,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:Temperature",
-    "@type": "pot:Class",
-    "subClassOf": "pot:DataType",
-    "rdfs:label": [
-      {
-        "@language": "en",
-        "@value": "Temperature"
-      }
-    ],
-    "vs:term_status": "unstable",
-    "owl:versionInfo": "DRAFT"
-  },
-  {
-    "@id": "pot:CelsiusTemperature",
-    "@type": "pot:Class",
-    "subClassOf": "pot:Temperature",
-    "rdfs:label": [
-      {
-        "@language": "en",
-        "@value": "Celsius temperature"
-      }
-    ],
-    "vs:term_status": "unstable",
-    "owl:versionInfo": "DRAFT"
-  },
-  {
-    "@id": "pot:FahrenheitTemperature",
-    "@type": "pot:Class",
-    "subClassOf": "pot:Temperature",
-    "rdfs:label": [
-      {
-        "@language": "en",
-        "@value": "Fahrenheit temperature"
-      }
-    ],
-    "vs:term_status": "unstable",
-    "owl:versionInfo": "DRAFT"
-  },
-  {
-    "@id": "pot:Measurement",
-    "@type": "pot:Class",
-    "subClassOf": "pot:DataType",
-    "rdfs:label": [
-      {
-        "@language": "en",
-        "@value": "DateTime"
-      }
-    ],
-    "vs:term_status": "unstable",
-    "owl:versionInfo": "DRAFT"
-  },
-  {
-    "@id": "pot:Date",
-    "@type": "rdf:Property",
-    "rdfs:label": [
-      {
-        "@language": "en",
-        "@value": "Date"
-      }
-    ],
-    "domain": [
-      "pot:Measurement"
-    ],
-    "range": [
-      "pot:DateTime"
-    ],
-    "vs:term_status": "unstable",
-    "owl:versionInfo": "DRAFT"
-  },
-  {
-    "@id": "pot:MeasuredTemperature",
-    "@type": "rdf:Property",
-    "rdfs:label": [
-      {
-        "@language": "en",
-        "@value": "Average temperature"
-      }
-    ],
-    "domain": [
-      "pot:Space",
-      "pot:Building"
-    ],
-    "range": [
-      "pot:Measurement",
-      "pot:CelsiusTemperature",
-      "pot:FahrenheitTemperature"
-    ],
-    "vs:term_status": "unstable",
-    "owl:versionInfo": "DRAFT"
-  },
-  {
-    "@id": "pot:Name",
+    "@id": "pot:name",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -705,7 +627,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:CategorizationUsageMain",
+    "@id": "pot:categorizationUsageMain",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -727,7 +649,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:CategorizationAreaTypeOfficial1",
+    "@id": "pot:categorizationAreaTypeOfficial1",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -746,7 +668,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:CategorizationAreaTypeOfficial2",
+    "@id": "pot:categorizationAreaTypeOfficial2",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -765,7 +687,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:CategorizationControl",
+    "@id": "pot:categorizationControl",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -784,7 +706,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:CategorizationCultureHistorySignificance",
+    "@id": "pot:categorizationCultureHistorySignificance",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -803,7 +725,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:CategorizationLocal",
+    "@id": "pot:categorizationLocal",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -822,7 +744,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:CategorizationOccupancyRestriction",
+    "@id": "pot:categorizationOccupancyRestriction",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -841,7 +763,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:CategorizationPropertyLocation",
+    "@id": "pot:categorizationPropertyLocation",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -860,7 +782,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:CategorizationUsageBuilding",
+    "@id": "pot:categorizationUsageBuilding",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -879,7 +801,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:CategorizationUsageCommonSpace",
+    "@id": "pot:categorizationUsageCommonSpace",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -899,7 +821,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:CategorizationUsageStatus",
+    "@id": "pot:categorizationUsageStatus",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -918,7 +840,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:DescriptionApartment",
+    "@id": "pot:descriptionApartment",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -937,7 +859,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:Description",
+    "@id": "pot:description",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -956,7 +878,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:DescriptionAdditional",
+    "@id": "pot:descriptionAdditional",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -969,13 +891,14 @@
       }
     ],
     "domain": [
-      "pot:Object"
+      "pot:Object",
+      "pot:Product"
     ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:DescriptionAmountRoom",
+    "@id": "pot:descriptionAmountRoom",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -994,7 +917,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:DescriptionAmountStairway",
+    "@id": "pot:descriptionAmountStairway",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1013,7 +936,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:DescriptionAmountStorey",
+    "@id": "pot:descriptionAmountStorey",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1032,7 +955,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:DescriptionContractCorporate",
+    "@id": "pot:descriptionContractCorporate",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1052,7 +975,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:DescriptionHeatingMain",
+    "@id": "pot:descriptionHeatingMain",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1071,7 +994,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:DescriptionKitchen",
+    "@id": "pot:descriptionKitchen",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1091,7 +1014,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:IdGovernment",
+    "@id": "pot:idGovernment",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1110,7 +1033,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:IdGovernmentPermanent",
+    "@id": "pot:idGovernmentPermanent",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1129,7 +1052,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:IdGovernmentReal1",
+    "@id": "pot:idGovernmentReal1",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1148,7 +1071,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:IdGovernmentReal2",
+    "@id": "pot:idGovernmentReal2",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1167,7 +1090,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:IdGovernmentTemporary",
+    "@id": "pot:idGovernmentTemporary",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1186,7 +1109,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:IdGtin",
+    "@id": "pot:idGtin",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1205,7 +1128,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:IdIfcGuid",
+    "@id": "pot:idIfcGuid",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1218,13 +1141,15 @@
       }
     ],
     "domain": [
-      "pot:Object"
+      "pot:Object",
+      "pot:Element",
+      "pot:Device"
     ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:IdName",
+    "@id": "pot:idName",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1237,13 +1162,15 @@
       }
     ],
     "domain": [
-      "pot:Object"
+      "pot:Object",
+      "pot:Element",
+      "pot:Device"
     ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:IdNameRealEstate",
+    "@id": "pot:idNameRealEstate",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1262,7 +1189,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:IdNameApartment",
+    "@id": "pot:idNameApartment",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1282,7 +1209,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:IdNfc",
+    "@id": "pot:idNfc",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1301,7 +1228,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:IdPot",
+    "@id": "pot:idPot",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1320,7 +1247,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:IdQr",
+    "@id": "pot:idQr",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1339,7 +1266,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:IdRfid",
+    "@id": "pot:idRfid",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1358,7 +1285,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:LifeCycleCompletionMomentYear",
+    "@id": "pot:lifeCycleCompletionMomentYear",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1382,7 +1309,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:LifeCycleInaugurationMomentYear",
+    "@id": "pot:lifeCycleInaugurationMomentYear",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1406,7 +1333,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:LifecycleInspectionYear",
+    "@id": "pot:lifecycleInspectionYear",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1429,7 +1356,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:LifeCycleStatusCurrent",
+    "@id": "pot:lifeCycleStatusCurrent",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1442,13 +1369,14 @@
       }
     ],
     "domain": [
-      "pot:Object"
+      "pot:Object",
+      "pot:Product"
     ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:LocationFloor",
+    "@id": "pot:locationFloor",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1467,7 +1395,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:PhysicalAreaSquare",
+    "@id": "pot:physicalAreaSquare",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1489,7 +1417,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:PhysicalAreaSquareMeterLivingNet",
+    "@id": "pot:physicalAreaSquareMeterLivingNet",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1511,7 +1439,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:PhysicalAreaSquareMeterLivingNetAudited",
+    "@id": "pot:physicalAreaSquareMeterLivingNetAudited",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1533,7 +1461,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:PhysicalAreaSquareMeterNet",
+    "@id": "pot:physicalAreaSquareMeterNet",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1555,7 +1483,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:PhysicalHeightMeter",
+    "@id": "pot:physicalHeightMeter",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1575,7 +1503,7 @@
     "owl:versionInfo": "DRAFT"
   },
   {
-    "@id": "pot:PhysicalVolumeCubic",
+    "@id": "pot:physicalVolumeCubic",
     "@type": "rdf:Property",
     "rdfs:label": [
       {
@@ -1590,6 +1518,649 @@
     "domain": [
       "pot:Building",
       "pot:Space"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:categorizationMain",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Type of element / device"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusElementin/laitteen tyyppi"
+      }
+    ],
+    "domain": [
+      "pot:Element",
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:categorizationIndustryDomain",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Engineering"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusTekniikan ala"
+      }
+    ],
+    "domain": [
+      "pot:Element",
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:categorizationIfcName",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "IFC element name"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusIFC elementti nimi"
+      }
+    ],
+    "domain": [
+      "pot:Element",
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:categorizationIfcElementType",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "IFC element type"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusIFC elementti tyyppi"
+      }
+    ],
+    "domain": [
+      "pot:Element",
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:physicalColorName",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Color"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusVäri"
+      }
+    ],
+    "domain": [
+      "pot:Element",
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:physicalColorCode",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "color ID"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusVäritunnus"
+      }
+    ],
+    "domain": [
+      "pot:Element",
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:physicalFlowRateStandart",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Standard Power"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusNormivirta"
+      }
+    ],
+    "domain": [
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:physicalVelocity",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Speed"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusNopeus"
+      }
+    ],
+    "domain": [
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:physicalPower",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Power (W)"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusTeho (W)"
+      }
+    ],
+    "domain": [
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:physicalTemperatureThermodynamic",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "color Temperature"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusVärilämpötila"
+      }
+    ],
+    "domain": [
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:physicalLuminousFlux",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "LED value"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusLED-arvo"
+      }
+    ],
+    "domain": [
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:physicalElectricityCurrent",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Power"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusVirta"
+      }
+    ],
+    "domain": [
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:physicalLength",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Length"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusPituus"
+      }
+    ],
+    "domain": [
+      "pot:Element",
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:physicalWidth",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Width"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusLeveys"
+      }
+    ],
+    "domain": [
+      "pot:Element",
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:physicalHeight",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Height"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusKorkeus"
+      }
+    ],
+    "domain": [
+      "pot:Element",
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:physicalVolume",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Volume"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusTilavuus"
+      }
+    ],
+    "domain": [
+      "pot:Element",
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:physicalThickness",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Thickness"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusPaksuus"
+      }
+    ],
+    "domain": [
+      "pot:Element",
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:physicalAreaGross",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Area - gross"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusPinta-ala - brutto"
+      }
+    ],
+    "domain": [
+      "pot:Element",
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:physicalAreaNet",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Area - net"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusPinta-ala - netto"
+      }
+    ],
+    "domain": [
+      "pot:Element",
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:physicalWeight",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Weight"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusPaino"
+      }
+    ],
+    "domain": [
+      "pot:Element",
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:idInstance",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Unique device ID"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusYksilöllinen laitetunnus"
+      }
+    ],
+    "domain": [
+      "pot:Element",
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:idCode",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Device ID"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusLaitteen tunnus"
+      }
+    ],
+    "domain": [
+      "pot:Element",
+      "pot:Device"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:categorizationETIM",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "ETIM class"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusETIM-luokka"
+      }
+    ],
+    "domain": [
+      "pot:Product"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:descriptionDetail",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Product specification"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusTuotteen tarkenne"
+      }
+    ],
+    "domain": [
+      "pot:Product"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:idEAN",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "EAN code"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusEAN koodi"
+      }
+    ],
+    "domain": [
+      "pot:Product"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:idModelCode",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "product ID"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusTuotetunnus"
+      }
+    ],
+    "domain": [
+      "pot:Product"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:idModelName",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "brand name"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusTuotenimi"
+      }
+    ],
+    "domain": [
+      "pot:Product"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:idModelGroupCode",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Product group ID"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusTuoteryhmän tunnus"
+      }
+    ],
+    "domain": [
+      "pot:Product"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:idModelGroupName",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Product group name"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusTuoteryhmän nimi"
+      }
+    ],
+    "domain": [
+      "pot:Product"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:idUrl",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Link"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusLinkki"
+      }
+    ],
+    "domain": [
+      "pot:Product"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:valuePricePurchase",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Purchase price"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusOstohinta"
+      }
+    ],
+    "domain": [
+      "pot:Product"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:valuePriceSell",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Selling price"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusMyyntihinta"
+      }
+    ],
+    "domain": [
+      "pot:Product"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:valuePriceCurrent",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Product value"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusTuotteen arvo"
+      }
+    ],
+    "domain": [
+      "pot:Product"
     ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"
