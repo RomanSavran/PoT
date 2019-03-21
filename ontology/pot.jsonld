@@ -1370,7 +1370,8 @@
     ],
     "domain": [
       "pot:Object",
-      "pot:Product"
+      "pot:Product",
+      "pot:Process"
     ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"
@@ -2161,6 +2162,177 @@
     ],
     "domain": [
       "pot:Product"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:roleExecutor",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Performed"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusSuorittaja"
+      }
+    ],
+    "domain": [
+      "pot:Process"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:idNameLocal",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Task name"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusTehtävän nimi"
+      }
+    ],
+    "domain": [
+      "pot:Process"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:idNamePoT",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Task Name - PoT"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusTehtävän nimi - PoT"
+      }
+    ],
+    "domain": [
+      "pot:Process"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:idPhysicalQuantity",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Amount"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusMäärä"
+      }
+    ],
+    "domain": [
+      "pot:Process"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:timeStartTime",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Start Time"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusAloitusaika"
+      }
+    ],
+    "domain": [
+      "pot:Process"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:timeEndTime",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "end Time"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusLopetusaika"
+      }
+    ],
+    "domain": [
+      "pot:Process"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:timeDuration",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Duration"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusKesto"
+      }
+    ],
+    "domain": [
+      "pot:Process"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:locationName",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Place"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusPaikka"
+      }
+    ],
+    "domain": [
+      "pot:Process"
+    ],
+    "vs:term_status": "unstable",
+    "owl:versionInfo": "DRAFT"
+  },
+  {
+    "@id": "pot:outputValue",
+    "@type": "rdf:Property",
+    "rdfs:label": [
+      {
+        "@language": "en",
+        "@value": "Value"
+      },
+      {
+        "@language": "fi",
+        "@value": "KäyttötarkoitusArvo"
+      }
+    ],
+    "domain": [
+      "pot:Process"
     ],
     "vs:term_status": "unstable",
     "owl:versionInfo": "DRAFT"
