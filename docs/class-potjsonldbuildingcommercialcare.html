@@ -1,0 +1,1863 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="static/libs/img/favicon.ico">
+
+	
+		<title>Ontospy > https://standards.oftrust.net/ontologies/pot</title>
+	
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="static/libs/bootstrap-3_3_7-dist/css/bootstrap.min.css" rel="stylesheet">  -->
+    <!-- Bootswatch:  -->
+    <!-- cerulean  | cyborg |  flatly |  lumen |  sandstone |   spacelab  |  yeti | cosmo |  darkly |  paper | simplex | superhero |  journal | readable  |   slate |  united -->
+    <link href="static/libs/bootswatch3_2/simplex/bootstrap.min.css" rel="stylesheet">
+    <link href="static/custom/css/simple-sidebar.css" rel="stylesheet">
+    <link href="static/custom/css/familytree.css" rel="stylesheet">
+    <link href="static/custom/css/tabletree.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="static/libs/bootstrap-3_3_7-dist/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="static/custom/css/sticky-footer-navbar.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<style type="text/css">
+
+  .lead-plus {font-size: 26.5px;}
+  .label-xs {font-size: 10px;}
+  .label-dark {background: #2c3e50; color: white; padding: 1px;}
+  .margin50 {margin-top: 50px; margin-bottom: 50px;}
+
+  .namespaces {background: #ced2d6; width: 100%;}
+
+
+  /*so that the d3plus tooltip panel doesnt cover the top banner*/
+  .navbar {z-index: 3000;}
+
+
+  .panel-body dt {margin-top: 5px;}
+  .page-header  {margin-top: 30px;}
+  #wrapper {margin-top: 50px;}
+
+  .implementation-panel {
+    overflow: auto;
+    /*max-height: 500px;*/
+  }
+
+  tr.table-classproperties {
+      /*background: #f5f5f5;*/
+  }
+  tr.table-classproperties th {
+      font-size: 80%;
+      font-weight: normal;
+  }
+
+
+  tr.table-inheritanceinfo {
+      /*background: #f5f5f5;*/
+      text-align: left;
+  }
+
+  tr.table-inheritanceinfo th {
+      font-size: 90%;
+      font-weight: normal;
+  }
+
+
+  .breadcrumb {
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .breadcrumb a {
+      text-transform: capitalize;
+  }
+  .breadcrumb li {
+      text-transform: none;
+      /*so to catch the uri @todo improve*/
+  }
+
+
+  .fromclass_link {
+    /*color: white;
+    text-decoration: underline;*/
+    /*background: #1c1e52;*/
+    color: inherit;
+    /*padding: 1px;*/
+  }
+
+		.mythumbnail {
+			display: block;
+			padding: 13px;
+			margin-bottom: 30px;
+			line-height: 13.428571;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			border-radius: 30px;
+		}
+
+		.mythumbnail:hover {
+			background: lightyellow;
+			text-decoration: none;
+		}
+
+
+		.img-container{
+		    height:100%;
+			overflow: hidden;
+		    max-height:200px;
+			padding: 10px;
+/*			margin: 20px 0px 20px 0px;*/
+			border: 1em #EAE5E5 solid;
+		}
+
+		.img-container:hover {
+			border: 1px grey solid;
+		}
+
+		img{
+/*		    height:100% !important;*/
+		}
+
+
+		.icon-xxs {
+			font-size: 15px;
+		}
+
+
+    /* dropdown open on hover */
+
+    @media (min-width: 979px) {
+      ul.nav li.dropdown:hover > ul.dropdown-menu {
+        display: block;
+      }
+    }
+
+
+
+/*pygments css*/
+.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+/*overloading this class from pygments*/
+.highlight {
+  overflow: auto;
+}
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+  </head>
+
+  <body>
+
+
+
+    
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a class="navbar-brand" id="menu-toggle" title="Toggle sidebar">
+        
+        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li ><a href="index.html"><code style="font-size: 115%;">https://standards.oftrust.net/ontologies/pot</code></a></li>
+        
+
+       
+
+
+        <li  ><a href="entities-az.html">Entities A-Z</a></li>
+        
+        <li ><a href="entities-tree-classes.html">Classes</a></li>
+        
+        
+        <li ><a href="entities-tree-properties.html">Properties</a></li>
+        
+        
+        
+        <li  ><a href="statistics.html">Statistics</a></li>
+
+
+
+
+
+      </ul>
+      
+    </div><!--/.nav-collapse -->
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+<div id="wrapper" class="toggled">
+
+
+    
+
+    
+        
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+
+
+        <li>
+          <input style="margin-top: 30px;  margin-bottom: 20px;" type="text" id="search-input-sidebar" name="" value="" placeholder="Type to search">
+        </li>
+
+        
+          <li class="-second-level" id="sd_classes"><a href="entities-tree-classes.html">Classes (245)</a>
+          </li>
+
+            
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_2"><a  href="class-dlibuilding.html">dli:Building</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_3"><a  href="class-dlicontract.html">dli:Contract</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_4"><a  href="class-dligroup.html">dli:Group</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_5"><a  href="class-dlihumanworld.html">dli:HumanWorld</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_6"><a  href="class-dliprocess.html">dli:Process</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_7"><a  href="class-dliproduct.html">dli:Product</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_8"><a  href="class-dlispace.html">dli:Space</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_9"><a  href="class-dlithing.html">dli:Thing</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_10"><a  href="class-dlivirtualthing.html">dli:VirtualThing</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_11"><a  href="class-potjsonldaccesscontrol.html">pot.jsonld:AccessControl</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_12"><a  href="class-potjsonldairconditioningsystem.html">pot.jsonld:AirConditioningSystem</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_13"><a  href="class-potjsonldalarm.html">pot.jsonld:Alarm</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_14"><a  href="class-potjsonldantenna.html">pot.jsonld:Antenna</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_15"><a  href="class-potjsonldapartment.html">pot.jsonld:Apartment</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_16"><a  href="class-potjsonldapartmentagriculture.html">pot.jsonld:ApartmentAgriculture</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_17"><a  href="class-potjsonldapartmentcare.html">pot.jsonld:ApartmentCare</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_18"><a  href="class-potjsonldapartmentcarehealthcare.html">pot.jsonld:ApartmentCareHealthcare</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_19"><a  href="class-potjsonldapartmentcareprison.html">pot.jsonld:ApartmentCarePrison</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_20"><a  href="class-potjsonldapartmentcaresocialwork.html">pot.jsonld:ApartmentCareSocialWork</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_21"><a  href="class-potjsonldapartmentcommercial.html">pot.jsonld:ApartmentCommercial</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_22"><a  href="class-potjsonldapartmentcommercialaccommodation.html">pot.jsonld:ApartmentCommercialAccommodation</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_23"><a  href="class-potjsonldapartmentcommercialboarding.html">pot.jsonld:ApartmentCommercialBoarding</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_24"><a  href="class-potjsonldapartmentcommercialenergy.html">pot.jsonld:ApartmentCommercialEnergy</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_25"><a  href="class-potjsonldapartmentcommercialindustrial.html">pot.jsonld:ApartmentCommercialIndustrial</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_26"><a  href="class-potjsonldapartmentcommercialoffice.html">pot.jsonld:ApartmentCommercialOffice</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_27"><a  href="class-potjsonldapartmentcommercialproduction.html">pot.jsonld:ApartmentCommercialProduction</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_28"><a  href="class-potjsonldapartmentcommercialrestaurant.html">pot.jsonld:ApartmentCommercialRestaurant</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_29"><a  href="class-potjsonldapartmentcommercialsales.html">pot.jsonld:ApartmentCommercialSales</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_30"><a  href="class-potjsonldapartmentcommercialstorage.html">pot.jsonld:ApartmentCommercialStorage</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_31"><a  href="class-potjsonldapartmentcommercialtraffic.html">pot.jsonld:ApartmentCommercialTraffic</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_32"><a  href="class-potjsonldapartmentdefense.html">pot.jsonld:ApartmentDefense</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_33"><a  href="class-potjsonldapartmenteducational.html">pot.jsonld:ApartmentEducational</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_34"><a  href="class-potjsonldapartmentfirefighting.html">pot.jsonld:ApartmentFireFighting</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_35"><a  href="class-potjsonldapartmentfreetime.html">pot.jsonld:ApartmentFreetime</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_36"><a  href="class-potjsonldapartmentliving.html">pot.jsonld:ApartmentLiving</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_37"><a  href="class-potjsonldapartmentmaintenance.html">pot.jsonld:ApartmentMaintenance</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_38"><a  href="class-potjsonldapartmentpolice.html">pot.jsonld:ApartmentPolice</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_39"><a  href="class-potjsonldapartmentrescue.html">pot.jsonld:ApartmentRescue</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_40"><a  href="class-potjsonldapartmentsocial.html">pot.jsonld:ApartmentSocial</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_41"><a  href="class-potjsonldapartmentsocialconcert.html">pot.jsonld:ApartmentSocialConcert</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_42"><a  href="class-potjsonldapartmentsocialexhibition.html">pot.jsonld:ApartmentSocialExhibition</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_43"><a  href="class-potjsonldapartmentsocialhobby.html">pot.jsonld:ApartmentSocialHobby</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_44"><a  href="class-potjsonldapartmentsociallibrary.html">pot.jsonld:ApartmentSocialLibrary</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_45"><a  href="class-potjsonldapartmentsocialmuseum.html">pot.jsonld:ApartmentSocialMuseum</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_46"><a  href="class-potjsonldapartmentsocialreligious.html">pot.jsonld:ApartmentSocialReligious</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_47"><a  href="class-potjsonldapartmentsocialtheater.html">pot.jsonld:ApartmentSocialTheater</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_48"><a  href="class-potjsonldbeam.html">pot.jsonld:Beam</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_49"><a  href="class-potjsonldbuildingagriculture.html">pot.jsonld:BuildingAgriculture</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_50"><a  href="class-potjsonldbuildingautomationandcontrolsystem.html">pot.jsonld:BuildingAutomationAndControlSystem</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_51"><a  href="class-potjsonldbuildingcommenrcialretail.html">pot.jsonld:BuildingCommenrcialRetail</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_52"><a  href="class-potjsonldbuildingcommercial.html">pot.jsonld:BuildingCommercial</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_53"><a  href="class-potjsonldbuildingcommercialaccommodation.html">pot.jsonld:BuildingCommercialAccommodation</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_54"><a  href="class-potjsonldbuildingcommercialaccommodationhostel.html">pot.jsonld:BuildingCommercialAccommodationHostel</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_55"><a  href="class-potjsonldbuildingcommercialaccommodationhotel.html">pot.jsonld:BuildingCommercialAccommodationHotel</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_56"><a  href="class-potjsonldbuildingcommercialaccommodationrecreation.html">pot.jsonld:BuildingCommercialAccommodationRecreation</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_57"><a class="active" href="class-potjsonldbuildingcommercialcare.html">pot.jsonld:BuildingCommercialCare</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_58"><a  href="class-potjsonldbuildingcommercialcarehealthcare.html">pot.jsonld:BuildingCommercialCareHealthcare</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_59"><a  href="class-potjsonldbuildingcommercialcarehospital.html">pot.jsonld:BuildingCommercialCareHospital</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_60"><a  href="class-potjsonldbuildingcommercialcareprison.html">pot.jsonld:BuildingCommercialCarePrison</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_61"><a  href="class-potjsonldbuildingcommercialcarerehabilitation.html">pot.jsonld:BuildingCommercialCareRehabilitation</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_62"><a  href="class-potjsonldbuildingcommercialcaresocialwork.html">pot.jsonld:BuildingCommercialCareSocialWork</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_63"><a  href="class-potjsonldbuildingcommercialenergy.html">pot.jsonld:BuildingCommercialEnergy</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_64"><a  href="class-potjsonldbuildingcommercialindustrial.html">pot.jsonld:BuildingCommercialIndustrial</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_65"><a  href="class-potjsonldbuildingcommercialoffice.html">pot.jsonld:BuildingCommercialOffice</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_66"><a  href="class-potjsonldbuildingcommercialrestaurant.html">pot.jsonld:BuildingCommercialRestaurant</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_67"><a  href="class-potjsonldbuildingcommercialretail.html">pot.jsonld:BuildingCommercialRetail</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_68"><a  href="class-potjsonldbuildingcommercialretailshoppingcentre.html">pot.jsonld:BuildingCommercialRetailShoppingCentre</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_69"><a  href="class-potjsonldbuildingcommercialsocial.html">pot.jsonld:BuildingCommercialSocial</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_70"><a  href="class-potjsonldbuildingcommercialsocialcinema.html">pot.jsonld:BuildingCommercialSocialCinema</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_71"><a  href="class-potjsonldbuildingcommercialsocialclub.html">pot.jsonld:BuildingCommercialSocialClub</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_72"><a  href="class-potjsonldbuildingcommercialsocialcongresshall.html">pot.jsonld:BuildingCommercialSocialCongressHall</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_73"><a  href="class-potjsonldbuildingcommercialsocialexhibitionhall.html">pot.jsonld:BuildingCommercialSocialExhibitionHall</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_74"><a  href="class-potjsonldbuildingcommercialsociallibrary.html">pot.jsonld:BuildingCommercialSocialLibrary</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_75"><a  href="class-potjsonldbuildingcommercialsocialmuseum.html">pot.jsonld:BuildingCommercialSocialMuseum</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_76"><a  href="class-potjsonldbuildingcommercialsocialmusichall.html">pot.jsonld:BuildingCommercialSocialMusicHall</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_77"><a  href="class-potjsonldbuildingcommercialsocialreligious.html">pot.jsonld:BuildingCommercialSocialReligious</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_78"><a  href="class-potjsonldbuildingcommercialsocialsporthall.html">pot.jsonld:BuildingCommercialSocialSportHall</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_79"><a  href="class-potjsonldbuildingcommercialsocialtheater.html">pot.jsonld:BuildingCommercialSocialTheater</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_80"><a  href="class-potjsonldbuildingcommercialtransport.html">pot.jsonld:BuildingCommercialTransport</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_81"><a  href="class-potjsonldbuildingcommercialutility.html">pot.jsonld:BuildingCommercialUtility</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_82"><a  href="class-potjsonldbuildingcommercialwarehouse.html">pot.jsonld:BuildingCommercialWarehouse</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_83"><a  href="class-potjsonldbuildingcommercialwholesale.html">pot.jsonld:BuildingCommercialWholesale</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_84"><a  href="class-potjsonldbuildingeducational.html">pot.jsonld:BuildingEducational</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_85"><a  href="class-potjsonldbuildingfreetime.html">pot.jsonld:BuildingFreetime</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_86"><a  href="class-potjsonldbuildingfreetimeyearpart.html">pot.jsonld:BuildingFreetimeYearPart</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_87"><a  href="class-potjsonldbuildingfreetimeyearround.html">pot.jsonld:BuildingFreetimeYearRound</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_88"><a  href="class-potjsonldbuildingrescue.html">pot.jsonld:BuildingRescue</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_89"><a  href="class-potjsonldbuildingrescuefirestation.html">pot.jsonld:BuildingRescueFireStation</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_90"><a  href="class-potjsonldbuildingresidental.html">pot.jsonld:BuildingResidental</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_91"><a  href="class-potjsonldbuildingresidentalblockofflat.html">pot.jsonld:BuildingResidentalBlockofflat</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_92"><a  href="class-potjsonldbuildingresidentaldetached.html">pot.jsonld:BuildingResidentalDetached</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_93"><a  href="class-potjsonldbuildingresidential.html">pot.jsonld:BuildingResidential</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_94"><a  href="class-potjsonldbuildingresidentialblockofflat.html">pot.jsonld:BuildingResidentialBlockOfFlat</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_95"><a  href="class-potjsonldbuildingresidentialblockofflatlowrise.html">pot.jsonld:BuildingResidentialBlockOfFlatLowrise</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_96"><a  href="class-potjsonldbuildingresidentialcommunity.html">pot.jsonld:BuildingResidentialCommunity</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_97"><a  href="class-potjsonldbuildingresidentialdetached.html">pot.jsonld:BuildingResidentialDetached</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_98"><a  href="class-potjsonldbuildingresidentialdetacheddwellingdouble.html">pot.jsonld:BuildingResidentialDetachedDwellingDouble</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_99"><a  href="class-potjsonldbuildingresidentialdetacheddwellingsingle.html">pot.jsonld:BuildingResidentialDetachedDwellingSingle</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_100"><a  href="class-potjsonldbuildingresidentialdetachedterraced.html">pot.jsonld:BuildingResidentialDetachedTerraced</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_101"><a  href="class-potjsonldbuildingresidentialspecialgroup.html">pot.jsonld:BuildingResidentialSpecialGroup</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_102"><a  href="class-potjsonldbuildingsystems.html">pot.jsonld:BuildingSystems</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_103"><a  href="class-potjsonldcable.html">pot.jsonld:Cable</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_104"><a  href="class-potjsonldcase.html">pot.jsonld:Case</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_105"><a  href="class-potjsonldclass.html">pot.jsonld:Class</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_106"><a  href="class-potjsonldcolumn.html">pot.jsonld:Column</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_107"><a  href="class-potjsonldcommunication.html">pot.jsonld:Communication</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_108"><a  href="class-potjsonldcommunicationssystem.html">pot.jsonld:CommunicationsSystem</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_109"><a  href="class-potjsonldcontact.html">pot.jsonld:Contact</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_110"><a  href="class-potjsonldconveyingsystem.html">pot.jsonld:ConveyingSystem</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_111"><a  href="class-potjsonldconveyor.html">pot.jsonld:Conveyor</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_112"><a  href="class-potjsonldcurtainwall.html">pot.jsonld:CurtainWall</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_113"><a  href="class-potjsonlddatatype.html">pot.jsonld:DataType</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_114"><a  href="class-potjsonlddate.html">pot.jsonld:Date</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_115"><a  href="class-potjsonlddatetime.html">pot.jsonld:DateTime</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_116"><a  href="class-potjsonlddevice.html">pot.jsonld:Device</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_117"><a  href="class-potjsonlddistributionboard.html">pot.jsonld:DistributionBoard</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_118"><a  href="class-potjsonlddistributionbox.html">pot.jsonld:DistributionBox</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_119"><a  href="class-potjsonlddistributioncabinet.html">pot.jsonld:DistributionCabinet</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_120"><a  href="class-potjsonlddistributionnetwork.html">pot.jsonld:DistributionNetwork</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_121"><a  href="class-potjsonlddoor.html">pot.jsonld:Door</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_122"><a  href="class-potjsonldelectricheating.html">pot.jsonld:ElectricHeating</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_123"><a  href="class-potjsonldelectrical.html">pot.jsonld:Electrical</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_124"><a  href="class-potjsonldelement.html">pot.jsonld:Element</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_125"><a  href="class-potjsonldelevator.html">pot.jsonld:Elevator</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_126"><a  href="class-potjsonldentryphone.html">pot.jsonld:EntryPhone</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_127"><a  href="class-potjsonldescalator.html">pot.jsonld:Escalator</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_128"><a  href="class-potjsonldevent.html">pot.jsonld:Event</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_129"><a  href="class-potjsonldfiredetector.html">pot.jsonld:FireDetector</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_130"><a  href="class-potjsonldfireprotectionsystem.html">pot.jsonld:FireProtectionSystem</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_131"><a  href="class-potjsonldfloor.html">pot.jsonld:Floor</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_132"><a  href="class-potjsonldfuse.html">pot.jsonld:Fuse</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_133"><a  href="class-potjsonldgassystem.html">pot.jsonld:GasSystem</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_134"><a  href="class-potjsonldgaseousextinguishing.html">pot.jsonld:GaseousExtinguishing</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_135"><a  href="class-potjsonldheatingsystem.html">pot.jsonld:HeatingSystem</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_136"><a  href="class-potjsonldhousingcooperative.html">pot.jsonld:HousingCooperative</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_137"><a  href="class-potjsonldhydrant.html">pot.jsonld:Hydrant</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_138"><a  href="class-potjsonldinformationnetwork.html">pot.jsonld:InformationNetwork</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_139"><a  href="class-potjsonldinsulation.html">pot.jsonld:Insulation</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_140"><a  href="class-potjsonldlighting.html">pot.jsonld:Lighting</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_141"><a  href="class-potjsonldlimitedcompany.html">pot.jsonld:LimitedCompany</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_142"><a  href="class-potjsonldlocking.html">pot.jsonld:Locking</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_143"><a  href="class-potjsonldmeasureaircarbondioxide.html">pot.jsonld:MeasureAirCarbondioxide</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_144"><a  href="class-potjsonldmeasureairtemperature.html">pot.jsonld:MeasureAirTemperature</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_145"><a  href="class-potjsonldmeter.html">pot.jsonld:Meter</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_146"><a  href="class-potjsonldnonlistedcompany.html">pot.jsonld:NonListedCompany</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_147"><a  href="class-potjsonldparty.html">pot.jsonld:Party</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_148"><a  href="class-potjsonldpoolsystem.html">pot.jsonld:PoolSystem</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_149"><a  href="class-potjsonldpoweroutlet.html">pot.jsonld:PowerOutlet</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_150"><a  href="class-potjsonldpowersystem.html">pot.jsonld:PowerSystem</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_151"><a  href="class-potjsonldrealestate.html">pot.jsonld:RealEstate</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_152"><a  href="class-potjsonldrechargeablebattery.html">pot.jsonld:RechargeableBattery</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_153"><a  href="class-potjsonldrefrigeratingsystem.html">pot.jsonld:RefrigeratingSystem</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_154"><a  href="class-potjsonldrelationship.html">pot.jsonld:Relationship</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_155"><a  href="class-potjsonldroof.html">pot.jsonld:Roof</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_156"><a  href="class-potjsonldroom.html">pot.jsonld:Room</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_157"><a  href="class-potjsonldroomphysical.html">pot.jsonld:RoomPhysical</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_158"><a  href="class-potjsonldroomphysicalbreak.html">pot.jsonld:RoomPhysicalBreak</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_159"><a  href="class-potjsonldroomphysicalcleaning.html">pot.jsonld:RoomPhysicalCleaning</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_160"><a  href="class-potjsonldroomphysicalcommercial.html">pot.jsonld:RoomPhysicalCommercial</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_161"><a  href="class-potjsonldroomphysicalcommercialcare.html">pot.jsonld:RoomPhysicalCommercialCare</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_162"><a  href="class-potjsonldroomphysicalcommercialcaredaycare.html">pot.jsonld:RoomPhysicalCommercialCareDaycare</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_163"><a  href="class-potjsonldroomphysicalcommercialcarehealthcare.html">pot.jsonld:RoomPhysicalCommercialCareHealthcare</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_164"><a  href="class-potjsonldroomphysicalcommercialcarehospital.html">pot.jsonld:RoomPhysicalCommercialCareHospital</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_165"><a  href="class-potjsonldroomphysicalcommercialcarenursery.html">pot.jsonld:RoomPhysicalCommercialCareNursery</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_166"><a  href="class-potjsonldroomphysicalcommercialcaresacral.html">pot.jsonld:RoomPhysicalCommercialCareSacral</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_167"><a  href="class-potjsonldroomphysicalcommercialcustomerservice.html">pot.jsonld:RoomPhysicalCommercialCustomerService</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_168"><a  href="class-potjsonldroomphysicalcommercialoffice.html">pot.jsonld:RoomPhysicalCommercialOffice</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_169"><a  href="class-potjsonldroomphysicalcommercialproduction.html">pot.jsonld:RoomPhysicalCommercialProduction</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_170"><a  href="class-potjsonldroomphysicalcommercialsocial.html">pot.jsonld:RoomPhysicalCommercialSocial</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_171"><a  href="class-potjsonldroomphysicalcommercialsocialculture.html">pot.jsonld:RoomPhysicalCommercialSocialCulture</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_172"><a  href="class-potjsonldroomphysicalcommercialsocialleisure.html">pot.jsonld:RoomPhysicalCommercialSocialLeisure</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_173"><a  href="class-potjsonldroomphysicalcommercialsocialsport.html">pot.jsonld:RoomPhysicalCommercialSocialSport</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_174"><a  href="class-potjsonldroomphysicaldining.html">pot.jsonld:RoomPhysicalDining</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_175"><a  href="class-potjsonldroomphysicaldiningoffice.html">pot.jsonld:RoomPhysicalDiningOffice</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_176"><a  href="class-potjsonldroomphysicaldiningpublic.html">pot.jsonld:RoomPhysicalDiningPublic</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_177"><a  href="class-potjsonldroomphysicaldressing.html">pot.jsonld:RoomPhysicalDressing</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_178"><a  href="class-potjsonldroomphysicaleducational.html">pot.jsonld:RoomPhysicalEducational</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_179"><a  href="class-potjsonldroomphysicaleducationalauditorium.html">pot.jsonld:RoomPhysicalEducationalAuditorium</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_180"><a  href="class-potjsonldroomphysicaleducationalclassroom.html">pot.jsonld:RoomPhysicalEducationalClassRoom</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_181"><a  href="class-potjsonldroomphysicaleducationalcontrolroom.html">pot.jsonld:RoomPhysicalEducationalControlRoom</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_182"><a  href="class-potjsonldroomphysicaleducationallaboratory.html">pot.jsonld:RoomPhysicalEducationalLaboratory</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_183"><a  href="class-potjsonldroomphysicaleducationallecturehall.html">pot.jsonld:RoomPhysicalEducationalLectureHall</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_184"><a  href="class-potjsonldroomphysicaleducationallectureroom.html">pot.jsonld:RoomPhysicalEducationalLectureRoom</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_185"><a  href="class-potjsonldroomphysicaleducationalresearch.html">pot.jsonld:RoomPhysicalEducationalResearch</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_186"><a  href="class-potjsonldroomphysicaleducationalworkinghall.html">pot.jsonld:RoomPhysicalEducationalWorkingHall</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_187"><a  href="class-potjsonldroomphysicalentrance.html">pot.jsonld:RoomPhysicalEntrance</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_188"><a  href="class-potjsonldroomphysicalhobby.html">pot.jsonld:RoomPhysicalHobby</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_189"><a  href="class-potjsonldroomphysicalkitchen.html">pot.jsonld:RoomPhysicalKitchen</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_190"><a  href="class-potjsonldroomphysicalkitchenrefrigeration.html">pot.jsonld:RoomPhysicalKitchenRefrigeration</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_191"><a  href="class-potjsonldroomphysicallaundry.html">pot.jsonld:RoomPhysicalLaundry</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_192"><a  href="class-potjsonldroomphysicalliving.html">pot.jsonld:RoomPhysicalLiving</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_193"><a  href="class-potjsonldroomphysicallivingaccomodation.html">pot.jsonld:RoomPhysicalLivingAccomodation</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_194"><a  href="class-potjsonldroomphysicallivingaccomodationbarrack.html">pot.jsonld:RoomPhysicalLivingAccomodationBarrack</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_195"><a  href="class-potjsonldroomphysicallivingaccomodationdorm.html">pot.jsonld:RoomPhysicalLivingAccomodationDorm</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_196"><a  href="class-potjsonldroomphysicallivingaccomodationhotel.html">pot.jsonld:RoomPhysicalLivingAccomodationHotel</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_197"><a  href="class-potjsonldroomphysicallivingresidential.html">pot.jsonld:RoomPhysicalLivingResidential</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_198"><a  href="class-potjsonldroomphysicallivingservice.html">pot.jsonld:RoomPhysicalLivingService</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_199"><a  href="class-potjsonldroomphysicalmaintenance.html">pot.jsonld:RoomPhysicalMaintenance</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_200"><a  href="class-potjsonldroomphysicalsauna.html">pot.jsonld:RoomPhysicalSauna</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_201"><a  href="class-potjsonldroomphysicalshelter.html">pot.jsonld:RoomPhysicalShelter</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_202"><a  href="class-potjsonldroomphysicalstorage.html">pot.jsonld:RoomPhysicalStorage</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_203"><a  href="class-potjsonldroomphysicalstoragearchive.html">pot.jsonld:RoomPhysicalStorageArchive</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_204"><a  href="class-potjsonldroomphysicalstoragecarshelter.html">pot.jsonld:RoomPhysicalStorageCarShelter</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_205"><a  href="class-potjsonldroomphysicalstoragehallstand.html">pot.jsonld:RoomPhysicalStorageHallstand</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_206"><a  href="class-potjsonldroomphysicaltechnical.html">pot.jsonld:RoomPhysicalTechnical</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_207"><a  href="class-potjsonldroomphysicaltechnicalairconditioning.html">pot.jsonld:RoomPhysicalTechnicalAirconditioning</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_208"><a  href="class-potjsonldroomphysicaltechnicalelectric.html">pot.jsonld:RoomPhysicalTechnicalElectric</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_209"><a  href="class-potjsonldroomphysicaltechnicalheating.html">pot.jsonld:RoomPhysicalTechnicalHeating</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_210"><a  href="class-potjsonldroomphysicaltechnicalwater.html">pot.jsonld:RoomPhysicalTechnicalWater</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_211"><a  href="class-potjsonldroomphysicaltoilet.html">pot.jsonld:RoomPhysicalToilet</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_212"><a  href="class-potjsonldroomphysicaltraffic.html">pot.jsonld:RoomPhysicalTraffic</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_213"><a  href="class-potjsonldroomphysicaltraffichorizontal.html">pot.jsonld:RoomPhysicalTrafficHorizontal</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_214"><a  href="class-potjsonldroomphysicaltrafficvertical.html">pot.jsonld:RoomPhysicalTrafficVertical</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_215"><a  href="class-potjsonldroomphysicalwashing.html">pot.jsonld:RoomPhysicalWashing</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_216"><a  href="class-potjsonldroomphysicalwaste.html">pot.jsonld:RoomPhysicalWaste</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_217"><a  href="class-potjsonldroomvirtual.html">pot.jsonld:RoomVirtual</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_218"><a  href="class-potjsonldsecondarypower.html">pot.jsonld:SecondaryPower</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_219"><a  href="class-potjsonldsecuritysystem.html">pot.jsonld:SecuritySystem</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_220"><a  href="class-potjsonldsensor.html">pot.jsonld:Sensor</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_221"><a  href="class-potjsonldsensorco2.html">pot.jsonld:SensorCO2</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_222"><a  href="class-potjsonldsensortemperature.html">pot.jsonld:SensorTemperature</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_223"><a  href="class-potjsonldsewersystem.html">pot.jsonld:SewerSystem</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_224"><a  href="class-potjsonldslab.html">pot.jsonld:Slab</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_225"><a  href="class-potjsonldsmokeexhausting.html">pot.jsonld:SmokeExhausting</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_226"><a  href="class-potjsonldsound.html">pot.jsonld:Sound</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_227"><a  href="class-potjsonldsprinkler.html">pot.jsonld:Sprinkler</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_228"><a  href="class-potjsonldstair.html">pot.jsonld:Stair</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_229"><a  href="class-potjsonldsupportedattribute.html">pot.jsonld:SupportedAttribute</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_230"><a  href="class-potjsonldswitch.html">pot.jsonld:Switch</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_231"><a  href="class-potjsonldtelephonenetwork.html">pot.jsonld:TelephoneNetwork</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_232"><a  href="class-potjsonldtime.html">pot.jsonld:Time</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_233"><a  href="class-potjsonldtransformer.html">pot.jsonld:Transformer</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_234"><a  href="class-potjsonldventilationsystem.html">pot.jsonld:VentilationSystem</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_235"><a  href="class-potjsonldvideo.html">pot.jsonld:Video</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_236"><a  href="class-potjsonldvideosurveillance.html">pot.jsonld:VideoSurveillance</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_237"><a  href="class-potjsonldwall.html">pot.jsonld:Wall</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_238"><a  href="class-potjsonldwater.html">pot.jsonld:Water</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_239"><a  href="class-potjsonldwaterdistributionsystem.html">pot.jsonld:WaterDistributionSystem</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_240"><a  href="class-potjsonldwaterfogging.html">pot.jsonld:WaterFogging</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_241"><a  href="class-potjsonldwatermist.html">pot.jsonld:WaterMist</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_242"><a  href="class-potjsonldwaterspray.html">pot.jsonld:WaterSpray</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_243"><a  href="class-potjsonldwatervapoursystem.html">pot.jsonld:WaterVapourSystem</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_244"><a  href="class-potjsonldwindow.html">pot.jsonld:Window</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_245"><a  href="class-potjsonldwire.html">pot.jsonld:Wire</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_246"><a  href="class-potjsonldyear.html">pot.jsonld:Year</a></li>
+          
+        
+
+        
+            <li class="-second-level" id="sd_properties"><a  href="entities-tree-properties.html">Properties (92)</a>
+            </li>
+
+            
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_247"><a   href="prop-potjsonldattribute.html">pot.jsonld:Attribute</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_248"><a   href="prop-potjsonldcategorizationareatypeofficial1.html">pot.jsonld:categorizationAreaTypeOfficial1</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_249"><a   href="prop-potjsonldcategorizationareatypeofficial2.html">pot.jsonld:categorizationAreaTypeOfficial2</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_250"><a   href="prop-potjsonldcategorizationcontrol.html">pot.jsonld:categorizationControl</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_251"><a   href="prop-potjsonldcategorizationculturehistorysignificance.html">pot.jsonld:categorizationCultureHistorySignificance</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_252"><a   href="prop-potjsonldcategorizationetim.html">pot.jsonld:categorizationETIM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_253"><a   href="prop-potjsonldcategorizationifcelementtype.html">pot.jsonld:categorizationIfcElementType</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_254"><a   href="prop-potjsonldcategorizationifcname.html">pot.jsonld:categorizationIfcName</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_255"><a   href="prop-potjsonldcategorizationindustrydomain.html">pot.jsonld:categorizationIndustryDomain</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_256"><a   href="prop-potjsonldcategorizationlocal.html">pot.jsonld:categorizationLocal</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_257"><a   href="prop-potjsonldcategorizationmain.html">pot.jsonld:categorizationMain</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_258"><a   href="prop-potjsonldcategorizationoccupancyrestriction.html">pot.jsonld:categorizationOccupancyRestriction</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_259"><a   href="prop-potjsonldcategorizationpropertylocation.html">pot.jsonld:categorizationPropertyLocation</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_260"><a   href="prop-potjsonldcategorizationusagebuilding.html">pot.jsonld:categorizationUsageBuilding</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_261"><a   href="prop-potjsonldcategorizationusagecommonspace.html">pot.jsonld:categorizationUsageCommonSpace</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_262"><a   href="prop-potjsonldcategorizationusagemain.html">pot.jsonld:categorizationUsageMain</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_263"><a   href="prop-potjsonldcategorizationusagestatus.html">pot.jsonld:categorizationUsageStatus</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_264"><a   href="prop-potjsonlddescription.html">pot.jsonld:description</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_265"><a   href="prop-potjsonlddescriptionadditional.html">pot.jsonld:descriptionAdditional</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_266"><a   href="prop-potjsonlddescriptionamountroom.html">pot.jsonld:descriptionAmountRoom</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_267"><a   href="prop-potjsonlddescriptionamountstairway.html">pot.jsonld:descriptionAmountStairway</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_268"><a   href="prop-potjsonlddescriptionamountstorey.html">pot.jsonld:descriptionAmountStorey</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_269"><a   href="prop-potjsonlddescriptionapartment.html">pot.jsonld:descriptionApartment</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_270"><a   href="prop-potjsonlddescriptioncontractcorporate.html">pot.jsonld:descriptionContractCorporate</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_271"><a   href="prop-potjsonlddescriptiondetail.html">pot.jsonld:descriptionDetail</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_272"><a   href="prop-potjsonlddescriptionheatingmain.html">pot.jsonld:descriptionHeatingMain</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_273"><a   href="prop-potjsonlddescriptionkitchen.html">pot.jsonld:descriptionKitchen</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_274"><a   href="prop-potjsonldidcode.html">pot.jsonld:idCode</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_275"><a   href="prop-potjsonldidean.html">pot.jsonld:idEAN</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_276"><a   href="prop-potjsonldidgovernment.html">pot.jsonld:idGovernment</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_277"><a   href="prop-potjsonldidgovernmentpermanent.html">pot.jsonld:idGovernmentPermanent</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_278"><a   href="prop-potjsonldidgovernmentreal1.html">pot.jsonld:idGovernmentReal1</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_279"><a   href="prop-potjsonldidgovernmentreal2.html">pot.jsonld:idGovernmentReal2</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_280"><a   href="prop-potjsonldidgovernmenttemporary.html">pot.jsonld:idGovernmentTemporary</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_281"><a   href="prop-potjsonldidgtin.html">pot.jsonld:idGtin</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_282"><a   href="prop-potjsonldidifcguid.html">pot.jsonld:idIfcGuid</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_283"><a   href="prop-potjsonldidinstance.html">pot.jsonld:idInstance</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_284"><a   href="prop-potjsonldidmodelcode.html">pot.jsonld:idModelCode</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_285"><a   href="prop-potjsonldidmodelgroupcode.html">pot.jsonld:idModelGroupCode</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_286"><a   href="prop-potjsonldidmodelgroupname.html">pot.jsonld:idModelGroupName</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_287"><a   href="prop-potjsonldidmodelname.html">pot.jsonld:idModelName</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_288"><a   href="prop-potjsonldidname.html">pot.jsonld:idName</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_289"><a   href="prop-potjsonldidnameapartment.html">pot.jsonld:idNameApartment</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_290"><a   href="prop-potjsonldidnamelocal.html">pot.jsonld:idNameLocal</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_291"><a   href="prop-potjsonldidnamepot.html">pot.jsonld:idNamePoT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_292"><a   href="prop-potjsonldidnamerealestate.html">pot.jsonld:idNameRealEstate</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_293"><a   href="prop-potjsonldidnfc.html">pot.jsonld:idNfc</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_294"><a   href="prop-potjsonldidphysicalquantity.html">pot.jsonld:idPhysicalQuantity</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_295"><a   href="prop-potjsonldidpot.html">pot.jsonld:idPot</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_296"><a   href="prop-potjsonldidqr.html">pot.jsonld:idQr</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_297"><a   href="prop-potjsonldidrfid.html">pot.jsonld:idRfid</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_298"><a   href="prop-potjsonldidurl.html">pot.jsonld:idUrl</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_299"><a   href="prop-potjsonldlifecyclecompletionmomentyear.html">pot.jsonld:lifeCycleCompletionMomentYear</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_300"><a   href="prop-potjsonldlifecycleinaugurationmomentyear.html">pot.jsonld:lifeCycleInaugurationMomentYear</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_301"><a   href="prop-potjsonldlifecyclestatuscurrent.html">pot.jsonld:lifeCycleStatusCurrent</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_302"><a   href="prop-potjsonldlifecycleinspectionyear.html">pot.jsonld:lifecycleInspectionYear</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_303"><a   href="prop-potjsonldlocationfloor.html">pot.jsonld:locationFloor</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_304"><a   href="prop-potjsonldlocationname.html">pot.jsonld:locationName</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_305"><a   href="prop-potjsonldname.html">pot.jsonld:name</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_306"><a   href="prop-potjsonldoutputvalue.html">pot.jsonld:outputValue</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_307"><a   href="prop-potjsonldphysicalareagross.html">pot.jsonld:physicalAreaGross</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_308"><a   href="prop-potjsonldphysicalareanet.html">pot.jsonld:physicalAreaNet</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_309"><a   href="prop-potjsonldphysicalareasquare.html">pot.jsonld:physicalAreaSquare</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_310"><a   href="prop-potjsonldphysicalareasquaremeterlivingnet.html">pot.jsonld:physicalAreaSquareMeterLivingNet</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_311"><a   href="prop-potjsonldphysicalareasquaremeterlivingnetaudited.html">pot.jsonld:physicalAreaSquareMeterLivingNetAudited</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_312"><a   href="prop-potjsonldphysicalareasquaremeternet.html">pot.jsonld:physicalAreaSquareMeterNet</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_313"><a   href="prop-potjsonldphysicalcolorcode.html">pot.jsonld:physicalColorCode</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_314"><a   href="prop-potjsonldphysicalcolorname.html">pot.jsonld:physicalColorName</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_315"><a   href="prop-potjsonldphysicalelectricitycurrent.html">pot.jsonld:physicalElectricityCurrent</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_316"><a   href="prop-potjsonldphysicalflowratestandard.html">pot.jsonld:physicalFlowRateStandard</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_317"><a   href="prop-potjsonldphysicalheight.html">pot.jsonld:physicalHeight</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_318"><a   href="prop-potjsonldphysicalheightmeter.html">pot.jsonld:physicalHeightMeter</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_319"><a   href="prop-potjsonldphysicallength.html">pot.jsonld:physicalLength</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_320"><a   href="prop-potjsonldphysicalluminousflux.html">pot.jsonld:physicalLuminousFlux</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_321"><a   href="prop-potjsonldphysicalpower.html">pot.jsonld:physicalPower</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_322"><a   href="prop-potjsonldphysicaltemperaturethermodynamic.html">pot.jsonld:physicalTemperatureThermodynamic</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_323"><a   href="prop-potjsonldphysicalthickness.html">pot.jsonld:physicalThickness</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_324"><a   href="prop-potjsonldphysicalvelocity.html">pot.jsonld:physicalVelocity</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_325"><a   href="prop-potjsonldphysicalvolume.html">pot.jsonld:physicalVolume</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_326"><a   href="prop-potjsonldphysicalvolumecubic.html">pot.jsonld:physicalVolumeCubic</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_327"><a   href="prop-potjsonldphysicalweight.html">pot.jsonld:physicalWeight</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_328"><a   href="prop-potjsonldphysicalwidth.html">pot.jsonld:physicalWidth</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_329"><a   href="prop-potjsonldroleexecutor.html">pot.jsonld:roleExecutor</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_330"><a   href="prop-potjsonldsupportedattribute.html">pot.jsonld:supportedAttribute</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_331"><a   href="prop-potjsonldsupportedclass.html">pot.jsonld:supportedClass</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_332"><a   href="prop-potjsonldsupportedtype.html">pot.jsonld:supportedType</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_333"><a   href="prop-potjsonldtimeduration.html">pot.jsonld:timeDuration</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_334"><a   href="prop-potjsonldtimeendtime.html">pot.jsonld:timeEndTime</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_335"><a   href="prop-potjsonldtimestarttime.html">pot.jsonld:timeStartTime</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_336"><a   href="prop-potjsonldvaluepricecurrent.html">pot.jsonld:valuePriceCurrent</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_337"><a   href="prop-potjsonldvaluepricepurchase.html">pot.jsonld:valuePricePurchase</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_338"><a   href="prop-potjsonldvaluepricesell.html">pot.jsonld:valuePriceSell</a></li>
+          
+
+        
+
+        
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+    </ul>
+
+</div>
+
+
+<!-- /#sidebar-wrapper -->
+
+    
+
+
+
+
+    <!-- Begin page content -->
+    <div class="container" id="page-content-wrapper">
+
+      
+
+	
+
+
+
+
+
+
+        
+
+
+
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <ol class="breadcrumb">
+    <li>
+      <a href="index.html">Home</a>
+    </li>
+    <li>
+          <a href="entities-az.html">Entities</a>
+    </li>
+    <li>
+          <a href="entities-tree-classes.html">Classes</a>
+    </li>
+      <li class="active">
+            https://standards.oftrust.net/ontologies/pot.jsonld#BuildingCommercialCare
+        </li>
+  </ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+            <h1>
+
+                pot.jsonld:BuildingCommercialCare
+                
+
+            </h1>
+            <hr>
+
+
+
+            <div class="tree-container">
+            <div class="tree">
+                <ul>
+                    
+
+                        
+
+                        <li>
+
+                          <a href="class-potjsonldbuildingcommercial.html" title="'Commercial building'">pot.jsonld:BuildingCommercial</a>
+
+                          <ul>
+
+                            <li><a style="font-weight: bold;" title="'Buildings for institutional care'">pot.jsonld:BuildingCommercialCare</a>
+                            
+                                <ul>
+                                  <li><a href="class-potjsonldbuildingcommercialcarehealthcare.html" title="'Health care building'">pot.jsonld:BuildingCommercialCareHealthcare</a></li><li><a href="class-potjsonldbuildingcommercialcarehospital.html" title="'Central hospital'">pot.jsonld:BuildingCommercialCareHospital</a></li><li><a href="class-potjsonldbuildingcommercialcareprison.html" title="'Prison'">pot.jsonld:BuildingCommercialCarePrison</a></li><li><a href="class-potjsonldbuildingcommercialcarerehabilitation.html" title="'Rehabilitation institute'">pot.jsonld:BuildingCommercialCareRehabilitation</a></li><li><a href="class-potjsonldbuildingcommercialcaresocialwork.html" title="'Social work activity building'">pot.jsonld:BuildingCommercialCareSocialWork</a></li>
+                                </ul>
+                            
+                              </li>
+
+                          </ul>
+
+                          </li>
+                        
+
+                    
+
+                </ul>
+            </div>
+            </div>
+
+
+
+
+           <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">URI</h3>
+            </div>
+            <div class="panel-body">
+
+                <code>https://standards.oftrust.net/ontologies/pot.jsonld#BuildingCommercialCare</code>
+            </div>
+          </div>
+           </div></div>
+
+           
+            <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Label</h3>
+            </div>
+            <div class="panel-body">
+
+                Buildings for institutional care
+            </div>
+          </div>
+           </div></div>
+           
+
+
+
+           
+
+
+
+
+           
+            <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Superclasses (2)</h3>
+            </div>
+            <div class="panel-body">
+
+            
+                    <li><a href="class-potjsonldbuildingcommercial.html" title="https://standards.oftrust.net/ontologies/pot.jsonld#BuildingCommercial">pot.jsonld:BuildingCommercial</a></li><li><a href="class-dlibuilding.html" title="https://digitalliving.github.io/standards/ontologies/dli.jsonld#Building">dli:Building</a></li>
+            
+
+            </div>
+          </div>
+           </div></div>
+           
+
+
+
+          
+
+
+
+         
+           <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Usage</h3>
+            </div>
+            <div class="panel-body" style="overflow: auto;">
+
+                <p>Instances of pot.jsonld:BuildingCommercialCare can have the following properties:</p>
+            </div>
+             <table class="table table-bordered" style="overflow: auto;">
+
+                <tr class="table-classproperties">
+                    <th>PROPERTY</th><th>TYPE</th><th>DESCRIPTION</th><th>RANGE</th>
+                </tr>
+
+                
+
+                    
+
+                    
+
+                    
+
+                
+
+                    
+
+                    
+
+                        <tr class="table-inheritanceinfo">
+                            <th colspan="4" class="treeinfo"><span class="label label-default">From class <a title="dli:Building" href="class-dlibuilding.html" class="fromclass_link">dli:Building</a></span>
+                            </th>
+                        </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:categorizationCultureHistorySignificance" href="prop-potjsonldcategorizationculturehistorysignificance.html">pot.jsonld:categorizationCultureHistorySignificance</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:categorizationUsageMain" href="prop-potjsonldcategorizationusagemain.html">pot.jsonld:categorizationUsageMain</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:descriptionAmountStairway" href="prop-potjsonlddescriptionamountstairway.html">pot.jsonld:descriptionAmountStairway</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:descriptionAmountStorey" href="prop-potjsonlddescriptionamountstorey.html">pot.jsonld:descriptionAmountStorey</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:descriptionHeatingMain" href="prop-potjsonlddescriptionheatingmain.html">pot.jsonld:descriptionHeatingMain</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:idGovernmentPermanent" href="prop-potjsonldidgovernmentpermanent.html">pot.jsonld:idGovernmentPermanent</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:idGovernmentTemporary" href="prop-potjsonldidgovernmenttemporary.html">pot.jsonld:idGovernmentTemporary</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:lifeCycleCompletionMomentYear" href="prop-potjsonldlifecyclecompletionmomentyear.html">pot.jsonld:lifeCycleCompletionMomentYear</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                    
+
+                                        
+                                          <a title="pot.jsonld:Year" href="class-potjsonldyear.html" class="rdfclass">pot.jsonld:Year</a>
+                                        
+
+
+                                    
+
+                                        
+                                          <a title="pot.jsonld:Date" href="class-potjsonlddate.html" class="rdfclass">pot.jsonld:Date</a>
+                                        
+
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:lifeCycleInaugurationMomentYear" href="prop-potjsonldlifecycleinaugurationmomentyear.html">pot.jsonld:lifeCycleInaugurationMomentYear</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                    
+
+                                        
+                                          <a title="pot.jsonld:Year" href="class-potjsonldyear.html" class="rdfclass">pot.jsonld:Year</a>
+                                        
+
+
+                                    
+
+                                        
+                                          <a title="pot.jsonld:Date" href="class-potjsonlddate.html" class="rdfclass">pot.jsonld:Date</a>
+                                        
+
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:lifecycleInspectionYear" href="prop-potjsonldlifecycleinspectionyear.html">pot.jsonld:lifecycleInspectionYear</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                    
+
+                                        
+                                          <a title="pot.jsonld:Year" href="class-potjsonldyear.html" class="rdfclass">pot.jsonld:Year</a>
+                                        
+
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:physicalAreaSquare" href="prop-potjsonldphysicalareasquare.html">pot.jsonld:physicalAreaSquare</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:physicalAreaSquareMeterLivingNet" href="prop-potjsonldphysicalareasquaremeterlivingnet.html">pot.jsonld:physicalAreaSquareMeterLivingNet</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:physicalAreaSquareMeterLivingNetAudited" href="prop-potjsonldphysicalareasquaremeterlivingnetaudited.html">pot.jsonld:physicalAreaSquareMeterLivingNetAudited</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:physicalAreaSquareMeterNet" href="prop-potjsonldphysicalareasquaremeternet.html">pot.jsonld:physicalAreaSquareMeterNet</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:physicalHeightMeter" href="prop-potjsonldphysicalheightmeter.html">pot.jsonld:physicalHeightMeter</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:physicalVolumeCubic" href="prop-potjsonldphysicalvolumecubic.html">pot.jsonld:physicalVolumeCubic</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+
+                    
+
+                    
+
+                
+
+                    
+
+                    
+
+                        <tr class="table-inheritanceinfo">
+                            <th colspan="4" class="treeinfo"><span class="label label-default">From class <a title="owl:Thing" href="class-owlthing.html" class="fromclass_link">owl:Thing</a></span>
+                            </th>
+                        </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:Attribute" href="prop-potjsonldattribute.html">pot.jsonld:Attribute</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>The class of PoT attributes. PoT attributes are properties a class can have.</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:supportedAttribute" href="prop-potjsonldsupportedattribute.html">pot.jsonld:supportedAttribute</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Attribuutit jotka tiedetään liittyvän identiteettiin</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                    
+
+                                        
+                                          <a title="pot.jsonld:SupportedAttribute" href="class-potjsonldsupportedattribute.html" class="rdfclass">pot.jsonld:SupportedAttribute</a>
+                                        
+
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:supportedClass" href="prop-potjsonldsupportedclass.html">pot.jsonld:supportedClass</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Luokat jotka tiedetään kuuluvan identiteettiin</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="pot.jsonld:supportedType" href="prop-potjsonldsupportedtype.html">pot.jsonld:supportedType</a>
+                                </td>
+                                <td class="secondtd">
+                                    <i>rdf:Property<i>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Tyypit jotka tiedetään kuuluvan identiteettiin</span>
+                                </td>
+                                <td class="fourthtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+
+                    
+
+                    
+
+                
+
+            </table>
+
+
+          </div>
+           </div></div>
+
+        
+
+
+
+
+
+
+           <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Implementation</h3>
+            </div>
+            <div class="panel-body implementation-panel">
+
+                
+
+                    <div class="highlight"><pre><span></span><span class="k">@prefix</span><span class="w"> </span><span class="nn">:</span><span class="w"> </span><span class="nv">&lt;https://standards.oftrust.net/ontologies/pot.jsonld#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">cc:</span><span class="w"> </span><span class="nv">&lt;http://creativecommons.org/ns#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">dc:</span><span class="w"> </span><span class="nv">&lt;http://purl.org/dc/elements/1.1/&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">dct:</span><span class="w"> </span><span class="nv">&lt;http://purl.org/dc/terms/&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">dli:</span><span class="w"> </span><span class="nv">&lt;https://digitalliving.github.io/standards/ontologies/dli.jsonld#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">owl:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2002/07/owl#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">pot:</span><span class="w"> </span><span class="nv">&lt;https://standards.oftrust.net/ontologies/pot.jsonld#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">rak:</span><span class="w"> </span><span class="nv">&lt;http://uri.suomi.fi/datamodel/ns/rak#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">rdf:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">rdfs:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">sh:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/ns/shacl#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">skos:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2004/02/skos/core#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">vann:</span><span class="w"> </span><span class="nv">&lt;http://purl.org/vocab/vann/&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">void:</span><span class="w"> </span><span class="nv">&lt;http://rdfs.org/ns/void#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">vs:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2003/06/sw-vocab-status/ns#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">xml:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/XML/1998/namespace&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">xsd:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+
+<span class="nn">pot:</span><span class="nt">BuildingCommercialCare</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">pot:</span><span class="nt">Class</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">label</span><span class="w"> </span><span class="s">&quot;Buildings for institutional care&quot;</span><span class="o">@</span><span class="ge">en</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s">&quot;Hoitoalan rakennus&quot;</span><span class="o">@</span><span class="ge">fi</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">isDefinedBy</span><span class="w"> </span><span class="nv">&lt;https://standards.oftrust.net/ontologies/pot&gt;</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">subClassOf</span><span class="w"> </span><span class="nn">pot:</span><span class="nt">BuildingCommercial</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">owl:</span><span class="nt">versionInfo</span><span class="w"> </span><span class="s">&quot;DRAFT&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">vs:</span><span class="nt">term_status</span><span class="w"> </span><span class="s">&quot;unstable&quot;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+</pre></div>
+
+
+                
+            </div>
+          </div>
+           </div></div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+	</div><!-- /#page-content-wrapper -->
+
+
+  
+
+
+
+  
+
+
+
+
+  <footer class="footer">
+    <div class="container">
+    
+      <p class="text-muted">Documentation automatically generated on 29th April 2019 with <a href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v1.9.8.2)</p>
+
+    
+    </div>
+  </footer>
+
+
+</div><!-- /#wrapper -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="static/libs/jquery/1_12_4/jquery.min.js"></script>
+<script src="static/libs/bootstrap-3_3_7-dist/js/bootstrap.min.js"></script>
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="static/libs/bootstrap-3_3_7-dist/js/ie10-viewport-bug-workaround.js"></script>
+
+<script src="static/libs/chartjs-2_4_0/chart.bundle.js"></script>
+
+
+<!-- Menu Toggle Script -->
+<script>
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+</script>
+
+
+
+
+<script type="text/javascript">
+
+$('#search-input-sidebar').keyup(function() {
+
+  var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+  // var $rows = $(this).next(".entities-list").find("div");
+  var $rows = $(this).parent().parent().find("li.second-level");
+
+  $rows.show().filter(function() {
+      var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+      return !~text.indexOf(val);
+  }).hide();
+});
+
+</script>
+
+
+
+
+  <!-- Scroll Sidebar Script -->
+
+  
+  
+
+  <script type="text/javascript">
+
+    $(document).ready(function (){
+      $('#sidebar-wrapper').animate({
+          scrollTop: $("#sd_57").offset().top - 100
+      }, 100);
+    });
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
