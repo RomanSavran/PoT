@@ -14,7 +14,7 @@
 		  "owl:versionInfo": "DRAFT"
 		},
 		{
-		  "@id": "pot:Indentity",
+		  "@id": "pot:Identity",
 		  "@type": "rdfs:Class",
 		  "subClassOf": "rdfs:Class",
 		  "rdfs:label": [
