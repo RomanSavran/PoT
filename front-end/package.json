@@ -1,0 +1,97 @@
+{
+  "name": "PoT",
+  "version": "1.0.0",
+  "description": "package",
+  "author": "UDS",
+  "private": true,
+  "browserslist": [
+    "last 2 versions",
+    "ie > 9"
+  ],
+  "dependencies": {
+    "axios": "^0.18.0",
+    "react": "^16.3.1",
+    "react-d3-tree": "^1.12.3",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.1.1",
+    "autoprefixer": "^8.1.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.18",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.28.10",
+    "extract-text-webpack-plugin": "4.0.0-alpha.0",
+    "fast-async": "^6.3.8",
+    "html-webpack-plugin": "^3.0.6",
+    "less": "^3.0.1",
+    "less-loader": "^4.1.0",
+    "postcss-loader": "^2.1.1",
+    "precss": "^3.1.2",
+    "style-loader": "^0.20.3",
+    "svg-sprite-loader": "^3.7.1",
+    "unminified-webpack-plugin": "^2.0.0",
+    "webpack-cli": "^3.1.1",
+    "webpack-config": "^7.5.0",
+    "webpack-dev-server": "^3.1.1"
+  },
+  "scripts": {
+    "dev": "set NODE_ENV=dev&& webpack-dev-server --config ./bin/webpack.config.babel.js --inline --watch --mode development",
+    "prod": "set NODE_ENV=prod&& webpack --config ./bin/webpack.config.babel.js --mode production",
+    "dll": "webpack --config ./bin/dll.babel.js --env production"
+  },
+  "babel": {
+    "env": {
+      "prod": {
+        "plugins": [
+          [
+            "transform-react-remove-prop-types",
+            {
+              "mode": "remove",
+              "removeImport": true
+            }
+          ]
+        ]
+      }
+    },
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": true
+          },
+          "loose": true
+        }
+      ]
+    ],
+    "plugins": [
+      [
+        "transform-object-rest-spread"
+      ],
+      [
+        "fast-async",
+        {
+          "env": {
+            "log": false
+          },
+          "compiler": {
+            "promises": true,
+            "generators": false
+          },
+          "runtimePattern": null,
+          "useRuntimeModule": false
+        }
+      ]
+    ]
+  }
+}
