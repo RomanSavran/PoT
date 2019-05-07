@@ -1,0 +1,30 @@
+{
+	"defines": [
+		{
+		  "@id": "pot:Owner",
+		  "@type": "rdfs:Class",
+		  "subClassOf": "pot:Link",
+		  "rdfs:label": [
+			{
+			  "@language": "en",
+			  "@value": "Owner"
+			}
+		  ],
+		  "vs:term_status": "unstable",
+		  "owl:versionInfo": "DRAFT"
+		},
+		{
+		  "@id": "pot:Tenant",
+		  "@type": "rdfs:Class",
+		  "subClassOf": "pot:Link",
+		  "rdfs:label": [
+			{
+			  "@language": "en",
+			  "@value": "Tenant"
+			}
+		  ],
+		  "vs:term_status": "unstable",
+		  "owl:versionInfo": "DRAFT"
+		}
+	]
+}

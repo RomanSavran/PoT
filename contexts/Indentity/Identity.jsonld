@@ -1,0 +1,30 @@
+{
+	"defines": [
+		{
+		  "@id": "pot:Apartment",
+		  "@type": "rdfs:Class",
+		  "subClassOf": "pot:Identity",
+		  "rdfs:label": [
+			{
+			  "@language": "en",
+			  "@value": "Apartment"
+			}
+		  ],
+		  "vs:term_status": "unstable",
+		  "owl:versionInfo": "DRAFT"
+		},
+		{
+		  "@id": "pot:Building",
+		  "@type": "rdfs:Class",
+		  "subClassOf": "pot:Identity",
+		  "rdfs:label": [
+			{
+			  "@language": "en",
+			  "@value": "Building"
+			}
+		  ],
+		  "vs:term_status": "unstable",
+		  "owl:versionInfo": "DRAFT"
+		}
+	]
+}

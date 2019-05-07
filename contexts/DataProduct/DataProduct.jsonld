@@ -1,0 +1,30 @@
+{
+	"defines": [
+		{
+		  "@id": "pot:Procountor",
+		  "@type": "rdfs:Class",
+		  "subClassOf": "pot:DataProduct",
+		  "rdfs:label": [
+			{
+			  "@language": "en",
+			  "@value": "Procountor"
+			}
+		  ],
+		  "vs:term_status": "unstable",
+		  "owl:versionInfo": "DRAFT"
+		},
+		{
+		  "@id": "pot:Domus",
+		  "@type": "rdfs:Class",
+		  "subClassOf": "pot:DataProduct",
+		  "rdfs:label": [
+			{
+			  "@language": "en",
+			  "@value": "Domus"
+			}
+		  ],
+		  "vs:term_status": "unstable",
+		  "owl:versionInfo": "DRAFT"
+		}
+	]
+}

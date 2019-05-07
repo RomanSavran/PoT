@@ -1,0 +1,30 @@
+{
+	"defines": [
+		{
+		  "@id": "pot:Kitchen",
+		  "@type": "rdfs:Class",
+		  "subClassOf": "pot:Apartment",
+		  "rdfs:label": [
+			{
+			  "@language": "en",
+			  "@value": "Kitchen"
+			}
+		  ],
+		  "vs:term_status": "unstable",
+		  "owl:versionInfo": "DRAFT"
+		},
+		{
+		  "@id": "pot:LivingRoom",
+		  "@type": "rdfs:Class",
+		  "subClassOf": "pot:Apartment",
+		  "rdfs:label": [
+			{
+			  "@language": "en",
+			  "@value": "Living room"
+			}
+		  ],
+		  "vs:term_status": "unstable",
+		  "owl:versionInfo": "DRAFT"
+		}
+	]
+}

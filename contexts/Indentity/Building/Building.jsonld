@@ -1,0 +1,30 @@
+{
+	"defines": [
+		{
+		  "@id": "pot:School",
+		  "@type": "rdfs:Class",
+		  "subClassOf": "pot:Building",
+		  "rdfs:label": [
+			{
+			  "@language": "en",
+			  "@value": "School"
+			}
+		  ],
+		  "vs:term_status": "unstable",
+		  "owl:versionInfo": "DRAFT"
+		},
+		{
+		  "@id": "pot:Hotel",
+		  "@type": "rdfs:Class",
+		  "subClassOf": "pot:Building",
+		  "rdfs:label": [
+			{
+			  "@language": "en",
+			  "@value": "Hotel"
+			}
+		  ],
+		  "vs:term_status": "unstable",
+		  "owl:versionInfo": "DRAFT"
+		}
+	]
+}

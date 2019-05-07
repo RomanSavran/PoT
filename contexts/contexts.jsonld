@@ -1,0 +1,43 @@
+{
+	"defines": [
+		{
+		  "@id": "pot:DataProduct",
+		  "@type": "rdfs:Class",
+		  "subClassOf": "rdfs:Class",
+		  "rdfs:label": [
+			{
+			  "@language": "en",
+			  "@value": "Data product"
+			}
+		  ],
+		  "vs:term_status": "unstable",
+		  "owl:versionInfo": "DRAFT"
+		},
+		{
+		  "@id": "pot:Indentity",
+		  "@type": "rdfs:Class",
+		  "subClassOf": "rdfs:Class",
+		  "rdfs:label": [
+			{
+			  "@language": "en",
+			  "@value": "Indentity"
+			}
+		  ],
+		  "vs:term_status": "unstable",
+		  "owl:versionInfo": "DRAFT"
+		},
+		{
+		  "@id": "pot:Link",
+		  "@type": "rdfs:Class",
+		  "subClassOf": "rdfs:Class",
+		  "rdfs:label": [
+			{
+			  "@language": "en",
+			  "@value": "Link"
+			}
+		  ],
+		  "vs:term_status": "unstable",
+		  "owl:versionInfo": "DRAFT"
+		}
+	]
+}
