@@ -4,24 +4,10 @@ const initialState = {
     treeData: [
         {
             name: 'contexts',
+            root: true,
             children: []
         }
     ],
-    // treeData: [
-    //     {
-    //         name: 'Top Level',
-    //         attributes: {},
-    //         children: [
-    //             {
-    //                 name: 'Level 2: A',
-    //                 attributes: {}
-    //             },
-    //             {
-    //                 name: 'Level 2: B'
-    //             }
-    //         ]
-    //     }
-    // ],
     isFetching: false
 };
 

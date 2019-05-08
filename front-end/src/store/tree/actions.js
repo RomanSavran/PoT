@@ -17,7 +17,7 @@ export function GET_tree(path) {
                     }
                 }
 
-                dispatch({ type: types.GET_TREE_DONE, treeData: {name: 'contexts', children: response} });
+                dispatch({ type: types.GET_TREE_DONE, treeData: {name: 'contexts', root: true, children: response} });
             }else {
                 dispatch({ type: types.GET_TREE_DONE, treeData: [] });
                 alert('Get tree data error. Status: ' + text);
@@ -48,6 +48,11 @@ export function GET_tree(path) {
     }
 }
 
+export function nodeClick(data) {
+    return ( dispatch, getState ) => {
+        
+    }
+}
 export function Unmount() {
     return ( dispatch, getState ) => {
         dispatch({ type: types.UNMOUNT_TREE });

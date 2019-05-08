@@ -18,14 +18,18 @@ class TreeComponent extends React.Component {
                         ? <Loader data={{size: 100}} />
                         : null
                 }
-                <TreeWrapper data={this.props.treeData} />
+                <TreeWrapper data={this.props.treeData} match={this.props.route} nodeClick={this.props.nodeClick} />
             </React.Fragment>
         );
     }
 }
 
 const mapDispatchToProps = dispatch => {
-    let actions = {};
+    let actions = {
+        nodeClick: (data) => {
+            dispatch(treeActions.nodeClick(data))
+        }
+    };
 
     return { ...actions, dispatch };
 };
