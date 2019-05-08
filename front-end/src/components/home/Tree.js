@@ -1,34 +1,40 @@
 import React from 'react';
-import {TreeWrapper} from '../index'
+import { TreeWrapper, Loader } from '../index'
 
-const myTreeData = [
-    {
-        name: 'Top Level',
-        attributes: {
-            keyA: 'val A',
-            keyB: 'val B',
-            keyC: 'val C'
-        },
-        children: [
-            {
-                name: 'Level 2: A',
-                attributes: {
-                    keyA: 'val A',
-                    keyB: 'val B',
-                    keyC: 'val C'
-                }
-            },
-            {
-                name: 'Level 2: B'
-            }
-        ]
+import * as treeActions from '../../store/tree/actions'
+
+import { connect } from 'react-redux';
+
+class TreeComponent extends React.Component {
+    componentDidMount() {
+        this.props.dispatch(treeActions.GET_tree(this.props.route.path));
     }
-];
-
-export class TreeComponent extends React.Component {
+    
     render() {
         return (
-            <TreeWrapper data={myTreeData} />
+            <React.Fragment>
+                {
+                    this.props.isFetching 
+                        ? <Loader data={{size: 100}} />
+                        : null
+                }
+                <TreeWrapper data={this.props.treeData} />
+            </React.Fragment>
         );
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    let actions = {};
+
+    return { ...actions, dispatch };
+};
+
+function mapStateToProps(state) {
+    return {
+        treeData: state.tree.treeData,
+        isFetching: state.tree.isFetching
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TreeComponent);

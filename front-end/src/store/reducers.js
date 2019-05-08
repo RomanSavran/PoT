@@ -1,5 +1,5 @@
-import configProj from './configure_projects/reducer';
+import tree from './tree/reducer';
 
 export {
-    configProj
+    tree
 };

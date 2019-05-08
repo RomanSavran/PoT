@@ -2,6 +2,8 @@ import React from 'react';
 import Tree from 'react-d3-tree';
 import PropTypes from 'prop-types';
 
+import { TreeNodeLabel } from '../index'
+
 export class TreeWrapper extends React.Component {
     constructor(props) {
         super(props);
@@ -27,6 +29,13 @@ export class TreeWrapper extends React.Component {
         return (
             <div className="viewport" ref={tc => (this.treeContainer = tc)}>
                 <Tree data={this.props.data}
+                      allowForeignObjects
+                      nodeLabelComponent={{
+                        render: <TreeNodeLabel className='myLabelComponentInSvg' />,
+                        foreignObjectWrapper: {
+                          y: 10
+                        }
+                      }}
                       translate={this.state.translate}/>
             </div>
         );
