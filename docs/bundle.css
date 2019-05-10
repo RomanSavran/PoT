@@ -1,0 +1,80 @@
+#loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+#header {
+  background: #ddd;
+  text-align: center;
+}
+html {
+  height: 100%;
+  font-size: 12px;
+}
+body {
+  min-height: 100%;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  direction: ltr;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+body *,
+body *:before,
+body *:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body a {
+  text-decoration: none;
+  color: inherit;
+}
+body img {
+  border: 0;
+}
+body b,
+body strong {
+  font-weight: bold;
+}
+body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.v-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  box-orient: horizontal;
+}
+.viewport {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.hidden {
+  display: none;
+}
+.element-are-loading {
+  position: relative;
+  min-height: 300px;
+  -webkit-box-shadow: 11px 10px 19px -6px rgba(0, 0, 0, 0.75);
+          box-shadow: 11px 10px 19px -6px rgba(0, 0, 0, 0.75);
+  opacity: 0.5;
+}
+.PowerSelect__Tether.PowerSelectMultiple__Tether,
+.PowerSelect__Tether {
+  z-index: 9;
+}
