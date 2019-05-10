@@ -17,7 +17,7 @@ const Main = () => {
                 <Switch>
                     {
                         routes.map((item) => {
-                            return <Route key={'Route_' + item.path} path={item.path} component={item.component}/>
+                            return <Route key={'Route_' + item.path} path={`${item.path}`} component={item.component}/>
                         })
                     }
                     <Redirect from="/" to="/contexts" />

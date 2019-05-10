@@ -47,7 +47,7 @@ export const FETCH = async (rs) => {
             data: data,
             baseURL: base
         })
-            .then((res) => {resolve(res)})
+            .then((res) => {resolve({res: res, rs: rs})})
             .catch((err) => {reject(err)});
     });
 };

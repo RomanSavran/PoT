@@ -1,5 +1,7 @@
 class Store {
-    
+    constructor () {
+        this.treeRestApi = new Map();
+    }
 }
 
-export const store = new Store();
+export const globalStore = new Store();

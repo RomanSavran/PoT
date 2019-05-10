@@ -5,6 +5,7 @@ const initialState = {
         {
             name: 'contexts',
             root: true,
+            path: '/',
             children: []
         }
     ],

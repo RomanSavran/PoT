@@ -1,50 +1,74 @@
 import * as types from './actionTypes';
 import * as API from '../../services/api/api'
 import { treeTube } from '../../reducers/index'
+import { globalStore } from '../../modules/_index'
 
 
 export function GET_tree(path) {
     return ( dispatch, getState ) => {
         dispatch({ type: types.REQ_PROCESS });
 
-        const responseHandler = (success, text, data) => {
-            if(success) {
-                let response = [];
+        let state = getState();
+        let treeData = JSON.parse(JSON.stringify(state.tree.treeData));
+        let restUrl = path.split('/');
 
-                if( data.defines ) {
-                    for( const child of data.defines ) {
-                        response.push( treeTube(child) );
-                    }
-                }
-
-                dispatch({ type: types.GET_TREE_DONE, treeData: {name: 'contexts', root: true, children: response} });
-            }else {
-                dispatch({ type: types.GET_TREE_DONE, treeData: [] });
-                alert('Get tree data error. Status: ' + text);
-            }
-        };
-
-        let rs = {
-            url: '',
+        let reqSettings = {
+            url: null,
+            key: null,
             method: 'get'
         };
-        let namePrefix;
+        let reqUrl = '';
+        let reqPrefix;
+        let reqPromises = [];
 
-        switch (path) {
-            case '/contexts':
-                rs.url = 'contexts';
-                break;
+        restUrl = restUrl.filter(item => item); //delete all ""
+
+        for( const urlPart of restUrl ) {
+            reqUrl += reqUrl ? '/' + urlPart : urlPart;
+
+            if( !globalStore.treeRestApi.get(urlPart) ) {
+                reqPrefix = reqUrl.split('/');
+
+                reqSettings.url = reqUrl + '/' + reqPrefix[reqPrefix.length - 1] + '.jsonld';
+                reqSettings.key = urlPart;
+                reqSettings.path = reqUrl;
+
+                globalStore.treeRestApi.set(urlPart, true);
+                reqPromises.push(API.FETCH(reqSettings));
+            }
         }
 
-        namePrefix = rs.url.split('/');
-        rs.url = rs.url + '/' + namePrefix[namePrefix.length - 1] + '.jsonld';
+        Promise.all(reqPromises).then((allData) => {
+            const findTreeElem = (elem, key, children) => {
+                if( elem.name === key ) {
+                    elem.children = children;
 
-        API.FETCH(rs)
-            .then((res) => {
-                responseHandler(true, '', res.data);
-            }, (err) => {
-                responseHandler(false, err, []);
-            });
+                    return;
+                }else {
+                    for( const treeElem of elem.children ) {
+                        findTreeElem(treeElem, key, children);
+                    }
+                }
+            };
+
+            for( const data of allData ) {
+                if( data.res && data.res.data.defines ) {
+                    let modelData = [], modelItem;
+
+                    for( const child of data.res.data.defines ) {
+                        modelItem = treeTube(child);
+
+                        modelItem.path = data.rs.path + '/' + modelItem.name;
+                        modelData.push( modelItem );
+                    }
+                    for( const treeElem of treeData ) {
+                        findTreeElem(treeElem, data.rs.key, modelData);
+                    }
+                }
+            }
+
+            dispatch({ type: types.GET_TREE_DONE, treeData: treeData });
+        });
     }
 }
 

@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 class TreeComponent extends React.Component {
     componentDidMount() {
-        this.props.dispatch(treeActions.GET_tree(this.props.route.path));
+        this.props.dispatch(treeActions.GET_tree(this.props.route.url));
     }
     
     render() {

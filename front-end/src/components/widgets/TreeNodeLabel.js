@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, Route, Redirect } from "react-router-dom";
+import Home from "../../containers/home/Home";
 
 export class TreeNodeLabel extends React.PureComponent {
     render() {
@@ -9,7 +10,8 @@ export class TreeNodeLabel extends React.PureComponent {
                 {
                     nodeData.root
                     ? <span>{nodeData.name}</span>
-                    : <Link to={`${this.props.match.url}/${nodeData.name}`}>{nodeData.name}</Link>
+                    : <Link to={`${nodeData.path}`}>{nodeData.name}</Link>
+
                 }
             </div>
         )
