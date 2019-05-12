@@ -4,11 +4,10 @@ import thunk from 'redux-thunk';
 import { routes } from '../modules/_index'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { Provider } from 'react-redux';
-import logger from 'redux-logger';
 
 import * as reducers from '../store/reducers';
 
-export const store = createStore(combineReducers(reducers), applyMiddleware(thunk, logger));
+export const store = createStore(combineReducers(reducers), applyMiddleware(thunk));
 
 
 const Main = () => {

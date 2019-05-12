@@ -14,7 +14,7 @@ export default {
     performance: {hints: false},
     entry: {
         core: ['react', 'react-dom', 'react-redux', 'babel-polyfill', 'react-router-dom', 'redux', 'redux-thunk'],
-        vendor: ['axios', 'react-d3-tree']
+        vendor: ['axios', 'react-d3-tree', 'query-string']
     },
     output: {
         filename: '[name].js',

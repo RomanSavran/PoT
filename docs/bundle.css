@@ -1,13 +1,52 @@
+#header {
+  background: #ddd;
+  text-align: center;
+}
 #loader {
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
-#header {
-  background: #ddd;
-  text-align: center;
+#home .tree-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+#home .tree-control .node-info {
+  width: 300px;
+  margin: 1rem;
+  padding: 1rem;
+  border: 2px solid #ff9900;
+  border-radius: 10px;
+  overflow: auto;
+}
+#home .tree-control .node-info pre {
+  white-space: pre-wrap;
+}
+#home .tree-control .node-info .name {
+  font-weight: bold;
+}
+#home .tree-control .tree {
+  margin: 1rem;
+  padding: 1rem;
+  border: 2px solid #ff9900;
+  border-radius: 10px;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+.treeNodeLabel .name {
+  cursor: pointer;
+}
+.treeNodeLabel .name:hover {
+  opacity: 0.7;
+  text-decoration: underline;
 }
 html {
   height: 100%;
@@ -20,13 +59,13 @@ body {
   font-size: 12px;
   direction: ltr;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 body *,
 body *:before,
 body *:after {
   -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body a {
@@ -55,8 +94,8 @@ body table {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   box-orient: horizontal;
 }
 .viewport {
@@ -71,10 +110,6 @@ body table {
   position: relative;
   min-height: 300px;
   -webkit-box-shadow: 11px 10px 19px -6px rgba(0, 0, 0, 0.75);
-          box-shadow: 11px 10px 19px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 11px 10px 19px -6px rgba(0, 0, 0, 0.75);
   opacity: 0.5;
-}
-.PowerSelect__Tether.PowerSelectMultiple__Tether,
-.PowerSelect__Tether {
-  z-index: 9;
 }
