@@ -7,7 +7,10 @@ import { connect } from 'react-redux';
 
 class TreeComponent extends React.Component {
     componentDidMount() {
-        this.props.dispatch(treeActions.GET_tree(this.props.route.url));
+        this.props.dispatch(treeActions.GET_tree(location.search));
+    }
+    componentWillUnmount() {
+        this.props.dispatch(treeActions.Unmount());
     }
     
     render() {
@@ -18,7 +21,19 @@ class TreeComponent extends React.Component {
                         ? <Loader data={{size: 100}} />
                         : null
                 }
-                <TreeWrapper data={this.props.treeData} match={this.props.route} nodeClick={this.props.nodeClick} />
+                <div className="tree-control viewport">
+                    {
+                        this.props.showNodeInfo && this.props.selectedNode.json
+                            ? <div className='node-info'>
+                                <div className="name">Node: {this.props.selectedNode.name}</div>
+                                <pre>{this.props.selectedNode.json}</pre>
+                            </div>
+                            : null
+                    }
+                    <div className="tree">
+                        <TreeWrapper data={this.props.treeData} match={this.props.route} nodeClick={this.props.nodeClick} />
+                    </div>
+                </div>
             </React.Fragment>
         );
     }
@@ -27,7 +42,8 @@ class TreeComponent extends React.Component {
 const mapDispatchToProps = dispatch => {
     let actions = {
         nodeClick: (data) => {
-            dispatch(treeActions.nodeClick(data))
+            dispatch(treeActions.GET_tree(location.search));
+            dispatch(treeActions.ShowNodeInfo(data));
         }
     };
 
@@ -37,7 +53,9 @@ const mapDispatchToProps = dispatch => {
 function mapStateToProps(state) {
     return {
         treeData: state.tree.treeData,
-        isFetching: state.tree.isFetching
+        selectedNode: state.tree.selectedNode,
+        isFetching: state.tree.isFetching,
+        showNodeInfo: state.tree.showNodeInfo
     }
 }
 

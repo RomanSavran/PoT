@@ -1,8 +1,9 @@
 import Home from '../containers/home/Home'
+import React from 'react'
 
 export const routes = [
     {
-        path: '/contexts',
+        path: '/tree',
         component: Home
     }
 ];

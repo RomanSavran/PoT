@@ -32,7 +32,7 @@ export const POST = async (path, data) => {
     });
 };
 
-export const FETCH = async (rs) => {
+export const FETCH = (rs) => {
     //rs - request settings
     let {data = null, url, method} = rs;
     
@@ -40,7 +40,7 @@ export const FETCH = async (rs) => {
         ? 'https://raw.githubusercontent.com/RomanSavran/PoT/master/'
         : 'https://raw.githubusercontent.com/RomanSavran/PoT/master/';
 
-    return await new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         axios({
             method: method,
             url: url,
