@@ -14,7 +14,7 @@ const getTreeNode = (rs) => {
     });
 };
 
-export function GET_tree(path) {
+export function GET_tree(nodeData, path, event) {
     return ( dispatch, getState ) => {
         let state = getState();
         let treeData = JSON.parse(JSON.stringify(state.tree.treeData));
@@ -48,10 +48,16 @@ export function GET_tree(path) {
             }
         }
 
+        // if no need load data - we just show node info
         if( reqPromises.length ) {
             dispatch({ type: types.REQ_PROCESS });
 
             Promise.all(reqPromises).then((allData) => {
+                let nodeInfoData = {
+                    name: null,
+                    json: null
+                };
+
                 const findTreeElem = (elem, key, children, originData) => {
                     if( elem.name === key ) {
                         elem.children = children;
@@ -69,6 +75,9 @@ export function GET_tree(path) {
                     if( data.res.data && data.res.data.defines ) {
                         let modelData = [], modelItem;
 
+                        nodeInfoData.json = event === 'node' ? JSON.stringify(data.res.data.defines, null, 2) : null;
+                        nodeInfoData.name = event === 'node' ? data.rs.key : null;
+
                         for( const child of data.res.data.defines ) {
                             modelItem = toTreeNodeModel(child);
 
@@ -81,21 +90,19 @@ export function GET_tree(path) {
                     }
                 }
 
-                dispatch({ type: types.GET_TREE_DONE, treeData: treeData });
+                dispatch({ type: types.GET_TREE_DONE, treeData: treeData, selectedNode: nodeInfoData });
             });
+        }else {
+            const node = {
+                name: nodeData.label,
+                json: JSON.stringify(nodeData.originData, null, 2)
+            };
+            
+            dispatch({ type: types.SELECT_NODE, node: node });
         }
     }
 }
 
-export function ShowNodeInfo(data) {
-    return ( dispatch, getState ) => {
-        const node = {
-            name: data.label,
-            json: JSON.stringify(data.originData, null, 2)
-        };
-        dispatch({ type: types.SELECT_NODE, node: node, showNodeInfo: true });
-    }
-}
 export function Unmount() {
     return ( dispatch, getState ) => {
         dispatch({ type: types.UNMOUNT_TREE, treeData: globalStore.initialTreeData });

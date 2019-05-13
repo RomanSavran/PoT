@@ -31,7 +31,7 @@ export class TreeWrapper extends React.Component {
                 <Tree data={this.props.data}
                       allowForeignObjects
                       nodeLabelComponent={{
-                        render: <TreeNodeLabel className='myLabelComponentInSvg' match={this.props.match} />,
+                        render: <TreeNodeLabel className='myLabelComponentInSvg' click={this.props.nodeTextClick} match={this.props.match} />,
                         foreignObjectWrapper: {
                           y: 10
                         }

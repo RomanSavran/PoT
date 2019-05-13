@@ -1,6 +1,9 @@
-#header {
-  background: #ddd;
-  text-align: center;
+#loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 .treeNodeLabel .name {
   cursor: pointer;
@@ -8,6 +11,10 @@
 .treeNodeLabel .name:hover {
   opacity: 0.7;
   text-decoration: underline;
+}
+#header {
+  background: #ddd;
+  text-align: center;
 }
 #home .tree-control {
   display: -webkit-box;
@@ -105,11 +112,4 @@ body table {
   -webkit-box-shadow: 11px 10px 19px -6px rgba(0, 0, 0, 0.75);
   box-shadow: 11px 10px 19px -6px rgba(0, 0, 0, 0.75);
   opacity: 0.5;
-}
-#loader {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
