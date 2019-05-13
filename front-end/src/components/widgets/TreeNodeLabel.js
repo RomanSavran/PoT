@@ -10,8 +10,8 @@ export class TreeNodeLabel extends React.PureComponent {
             <div className="treeNodeLabel">
                 {
                     nodeData.root
-                    ? <span className="name">{nodeData.name}</span>
-                    : <span className="name"><Link to={{pathname: '/tree', search: `?api=${nodeData.path}`}}>{nodeData.name}</Link></span>
+                    ? <span className="name">{nodeData.label}</span>
+                    : <span className="name"><Link to={{pathname: '/tree', search: `?api=${nodeData.path}`}}>{nodeData.label}</Link></span>
                 }
             </div>
         )

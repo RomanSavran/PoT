@@ -31,7 +31,10 @@ class TreeComponent extends React.Component {
                             : null
                     }
                     <div className="tree">
-                        <TreeWrapper data={this.props.treeData} match={this.props.route} nodeClick={this.props.nodeClick} />
+                        <TreeWrapper data={this.props.treeData}
+                                     match={this.props.route}
+                                     nodeClick={this.props.nodeClick}
+                        />
                     </div>
                 </div>
             </React.Fragment>

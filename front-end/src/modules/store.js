@@ -4,6 +4,7 @@ class Store {
         this.initialTreeData = [
             {
                 name: 'contexts',
+                label: 'PoT',
                 root: true,
                 path: '/',
                 children: []

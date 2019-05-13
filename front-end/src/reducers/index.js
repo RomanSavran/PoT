@@ -1,4 +1,4 @@
-export const treeTube = (elem) => {
+export const toTreeNodeModel = (elem) => {
     let result = {};
 
     try {
@@ -6,6 +6,7 @@ export const treeTube = (elem) => {
 
         result = {
             name: name ? name.split(':')[1] : '',
+            label: name ? name.split(':')[1] : '',
             children: []
         };
 

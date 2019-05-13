@@ -1,8 +1,18 @@
 import * as types from './actionTypes';
-import * as API from '../../services/api/api'
-import { treeTube } from '../../reducers/index'
-import { globalStore } from '../../modules/_index'
-import queryString from 'query-string'
+import * as API from '../../services/api/api';
+import { toTreeNodeModel } from '../../reducers/index';
+import { globalStore } from '../../modules/_index';
+import queryString from 'query-string';
+
+const getTreeNode = (rs) => {
+    return new Promise((resolve) => {
+        API.FETCH(rs).then((data) => {
+            resolve(data);
+        },(err) => {
+            resolve({res: [], rs: rs});
+        });
+    });
+};
 
 export function GET_tree(path) {
     return ( dispatch, getState ) => {
@@ -34,7 +44,7 @@ export function GET_tree(path) {
                 reqSettings.path = reqUrl;
 
                 globalStore.treeRestApi.set(urlPart, true);
-                reqPromises.push(API.FETCH(reqSettings));
+                reqPromises.push(getTreeNode(reqSettings));
             }
         }
 
@@ -47,7 +57,7 @@ export function GET_tree(path) {
                         elem.children = children;
                         elem.originData = originData;
 
-                        return;
+                        return true;
                     }else {
                         for( const treeElem of elem.children ) {
                             findTreeElem(treeElem, key, children, originData);
@@ -56,11 +66,11 @@ export function GET_tree(path) {
                 };
 
                 for( const data of allData ) {
-                    if( data.res && data.res.data.defines ) {
+                    if( data.res.data && data.res.data.defines ) {
                         let modelData = [], modelItem;
 
                         for( const child of data.res.data.defines ) {
-                            modelItem = treeTube(child);
+                            modelItem = toTreeNodeModel(child);
 
                             modelItem.path = data.rs.path + '/' + modelItem.name;
                             modelData.push( modelItem );
@@ -80,7 +90,7 @@ export function GET_tree(path) {
 export function ShowNodeInfo(data) {
     return ( dispatch, getState ) => {
         const node = {
-            name: data.name,
+            name: data.label,
             json: JSON.stringify(data.originData, null, 2)
         };
         dispatch({ type: types.SELECT_NODE, node: node, showNodeInfo: true });

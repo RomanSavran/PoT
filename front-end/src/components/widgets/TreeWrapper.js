@@ -37,6 +37,8 @@ export class TreeWrapper extends React.Component {
                         }
                       }}
                       onClick={this.props.nodeClick}
+                      nodeSize={{x: 140, y: 80}}
+                      separation={{siblings: 1, nonSiblings: 1}}
                       translate={this.state.translate}/>
             </div>
         );
