@@ -23,7 +23,7 @@ class TreeComponent extends React.Component {
                 }
                 <div className="tree-control viewport">
                     {
-                        this.props.showNodeInfo && this.props.selectedNode.json
+                        this.props.showNodeInfo
                             ? <div className='node-info'>
                                 <div className="name">Node: {this.props.selectedNode.name}</div>
                                 <pre>{this.props.selectedNode.json}</pre>
