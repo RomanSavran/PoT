@@ -21,15 +21,16 @@ class TreeComponent extends React.Component {
                         ? <Loader data={{size: 100}} />
                         : null
                 }
-                <div className="tree-control viewport ">
+                <div className="tree-control viewport">
                     {
                         this.props.selectedNode.json
-                            ? <div className='node-info'>
-                                <div className="name">Node: {this.props.selectedNode.name}</div>
-                                <pre>{this.props.selectedNode.json}</pre>
-                            </div>
+                            ? <div className="node-info swing-in-left-fwd">
+                            <div className="name">Node: {this.props.selectedNode.name}</div>
+                            <pre>{this.props.selectedNode.json}</pre>
+                        </div>
                             : null
                     }
+
                     <div className="tree">
                         <TreeWrapper data={this.props.treeData}
                                      match={this.props.route}
