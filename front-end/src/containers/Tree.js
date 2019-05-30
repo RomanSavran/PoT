@@ -1,7 +1,7 @@
 import React from 'react';
-import { TreeWrapper, Loader } from '../index'
+import { TreeWrapper, Loader } from '../components/index'
 
-import * as treeActions from '../../store/tree/actions'
+import * as treeActions from '../actions/tree'
 
 import { connect } from 'react-redux';
 
@@ -23,7 +23,7 @@ class TreeComponent extends React.Component {
                 }
                 <div className="tree-control viewport">
                     {
-                        this.props.selectedNode.json
+                        this.props.selectedNode
                             ? <div className="node-info swing-in-left-fwd">
                             <div className="name">Node: {this.props.selectedNode.name}</div>
                             <pre>{this.props.selectedNode.json}</pre>
@@ -47,10 +47,10 @@ class TreeComponent extends React.Component {
 const mapDispatchToProps = dispatch => {
     let actions = {
         nodeClick: (data) => {
-            // dispatch(treeActions.ShowNodeInfo(data));
+            dispatch(treeActions.GET_tree(data, location.search, 'node'));
         },
         nodeTextClick: (data) => {
-            dispatch(treeActions.GET_tree(data, location.search, 'node'));
+            //dispatch(treeActions.GET_tree(data, location.search, 'node'));
         }
     };
 
@@ -59,7 +59,7 @@ const mapDispatchToProps = dispatch => {
 
 function mapStateToProps(state) {
     return {
-        treeData: state.tree.treeData,
+        treeData: state.tree.data,
         selectedNode: state.tree.selectedNode,
         isFetching: state.tree.isFetching
     }

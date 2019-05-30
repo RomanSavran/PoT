@@ -30,8 +30,9 @@ export class TreeWrapper extends React.Component {
             <div className="viewport" ref={tc => (this.treeContainer = tc)}>
                 <Tree data={this.props.data}
                       allowForeignObjects
+                      useCollapseData={true}
                       nodeLabelComponent={{
-                        render: <TreeNodeLabel className='myLabelComponentInSvg' click={this.props.nodeTextClick} match={this.props.match} />,
+                        render: <TreeNodeLabel className='myLabelComponentInSvg' click={this.props.nodeTextClick} match={this.props.match}/>,
                         foreignObjectWrapper: {
                           y: 10
                         }

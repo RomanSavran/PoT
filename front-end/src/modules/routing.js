@@ -1,4 +1,4 @@
-import Home from '../containers/home/Home'
+import { Home } from '../components/index'
 import React from 'react'
 
 export const routes = [

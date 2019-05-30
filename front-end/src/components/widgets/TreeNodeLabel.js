@@ -20,7 +20,7 @@ export class TreeNodeLabel extends React.PureComponent {
                 {
                     nodeData.root
                     ? <span className="name">{nodeData.label}</span>
-                    : <span className="name"><Link to={{pathname: '/tree', search: `?api=${nodeData.path}`}}>{nodeData.label}</Link></span>
+                    : <span className="name"><Link to={{pathname: `${this.props.match.url}`, search: `?api=${nodeData.path}`}}>{nodeData.label}</Link></span>
                 }
             </div>
         )

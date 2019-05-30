@@ -1,19 +1,9 @@
-export const toTreeNodeModel = (elem) => {
-    let result = {};
+import { updateTree } from './tree'
 
-    try {
-        let name = Reflect.get(elem, '@id') || '';
-
-        result = {
-            name: name ? name.split(':')[1] : '',
-            label: name ? name.split(':')[1] : '',
-            children: []
-        };
-
-    }catch (err) {
-        console.log('parse tree response error: ', err);
+const reducer = (state, action) => {
+    return {
+        tree: updateTree(state, action)
     }
-
-    return result;
 };
 
+export default reducer;

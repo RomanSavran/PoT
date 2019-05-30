@@ -1,4 +1,4 @@
-class Store {
+class DataKeeperService {
     constructor () {
         this.treeRestApi = new Map();
         this.initialTreeData = [
@@ -7,10 +7,11 @@ class Store {
                 label: 'PoT',
                 root: true,
                 path: '/',
+                _collapsed: false,
                 children: []
             }
         ];
     }
 }
 
-export const globalStore = new Store();
+export const dataKeeperService = new DataKeeperService();

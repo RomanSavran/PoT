@@ -1,5 +1,5 @@
 import React from 'react'
-import { TreeComponent } from '../../components/index'
+import { TreeComponent } from '../../containers/_index'
 
 import '../../less/pages/Home.less';
 
